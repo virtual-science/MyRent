@@ -1,0 +1,48 @@
+#{extends 'main.html' /} #{set title:'Signup' /}
+
+
+<nav class="ui blue menu">
+    <a class=" item" href="/">Welcome</a>
+    <a class="active item" href="/signup"> Sign Up</a>
+    <a class="item" href="/login"> Login</a>
+    </nav>
+		
+<h1> Create MyRent account </h1>
+<h3> Register using a valid email address </h3>
+
+<div class="ui two column grid">
+	  <div class="column">
+	    <div class="ui fluid form segment">
+	    <form action="/register" method="POST">
+	      <div class="two fields">
+	        <div class="field">
+	          <input placeholder="First Name" name="user.firstName" type="text">
+	        </div>
+	        <div class="field">
+	          <input placeholder="Last Name" name="user.lastName" type="text">
+	        </div>
+	      </div>
+	      <div class="ui left icon input field">
+          <input placeholder="Email" name="user.email" type="text">
+          <i class="user icon"></i>
+        </div>
+        <div class="ui left icon input field">
+          <input placeholder="Password" type="password" name="user.password">
+          <i class="lock icon"></i>
+        </div>
+		
+										
+										<div class="ui column">
+	<section class="ui form segment">
+	
+		<input type="checkbox" id="usCitizen" name="terms"> <label
+			for="usCitizen">I agree to the terms and conditions</label>
+										
+								</div>
+
+								<button type="submit" class="ui blue submit button">Submit</button>
+							</div>
+						</div>
+					</div>
+	</form>
+	</section>

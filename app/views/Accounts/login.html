@@ -1,0 +1,25 @@
+#{extends 'main.html' /}
+#{set title:'Login to myRent' /}
+
+<nav class="ui blue menu">
+    <a class="item" href="/">Welcome</a>
+    <a class="item" href="/signup"> Sign Up</a>
+    <a class="active item" href="/login"> Login</a>
+    </nav>
+
+<h1> Login into your account </h1>
+<h3> Your username is the email registered with </h3>
+
+<section class="ui form segment">
+	<form action="/authenticate" method="POST">
+	  <div class="field">
+	    <label> Email: </label>
+	    <input type="text" name="email">
+	  </div>  
+	  <div class="field">
+	    <label>  Password: </label>
+	    <input type="password" name="password">
+	  </div>
+	  <button class="ui blue submit button">Login</button>
+	</form>
+</section>
