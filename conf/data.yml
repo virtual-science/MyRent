@@ -3,14 +3,12 @@ User(homer):
     lastName: Simpson
     email: homer@simpson.com
     password: secret
-    usaCitizen: TRUE
 
 User(marge):
     firstName: Marge
     lastName: Simpson
     email: marge@simpson.com
-    password: secret
-    usaCitizen: TRUE    
+    password: secret    
 
 User(maggie):
     firstName: Maggie
@@ -18,18 +16,15 @@ User(maggie):
     nationality: British
     email: maggie@simpson.com
     password: secret
-    usaCitizen: TRUE
 
 User(lisa):
     firstName: Lisa
     lastName: Simpson
     email: lisa@simpson.com
     password: secret
-    usaCitizen: TRUE
 
 User(bart):
     firstName: Bart
     lastName: Simpson
     email: bart@simpson.com
     password: secret
-    usaCitizen: TRUE

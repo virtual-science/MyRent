@@ -29,7 +29,7 @@ public class Accounts extends Controller {
 
 	public static void logout() {
 		session.clear();
-		Welcome.index();
+		Home.index();
 	}
 
 	public static void authenticate(String email, String password) {
@@ -39,7 +39,7 @@ public class Accounts extends Controller {
 		if ((user != null) && (user.checkPassword(password) == true)) {
 			Logger.info("Successfully authentication of " + user.firstName);
 			session.put("logged_in_userid", user.id);
-			Welcome.index();
+			inputData.index();
 		} else {
 			Logger.info("Authentication failed");
 			login();

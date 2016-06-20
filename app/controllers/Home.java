@@ -4,7 +4,7 @@ import play.*;
 import play.mvc.*;
 import models.*;
 
-public class Welcome extends Controller
+public class Home extends Controller
 {
 public static void index()
 {
