@@ -56,5 +56,8 @@ public class Accounts extends Controller {
 		Logger.info("In Accounts controller: Logged in user is " + logged_in_user.firstName);
 		return logged_in_user;
 	}
+	
+	
+	}
 
-}
+

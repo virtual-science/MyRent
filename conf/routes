@@ -6,7 +6,6 @@
 GET     /                                       Welcome.index
 
 # Report
-
 GET     /renderReport        		            ReportController.index
 POST 	/generateReport							ReportController.generateReport
 
@@ -21,6 +20,11 @@ POST    /register                               Accounts.register
 # inputData
 GET     /inputData                              inputData.index
 POST    /inputData/datainput					inputData.datainput
+
+
+# Contact
+GET     /contact								Contact.index
+POST    /contact								Contact.storeContact
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
