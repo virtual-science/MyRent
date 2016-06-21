@@ -1,28 +1,19 @@
-<!DOCTYPE html>
-<html>
+#{extends 'main.html' /} #{set title:'Welcome' /}
 
-  <head>
-    <title>Report Request</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" media="screen" href="/public/semantic/semantic.min.css">
-    <script src="/public/javascripts/jquery-2.1.1.js" type="text/javascript" charset="utf-8"></script>
-    <script src="/public/semantic/semantic.js"></script>
-  </head>
-
-  <body>
-      <nav class="ui menu">
+ 
+ <nav class="ui menu">
   <a class="ui item" href="/">Welcome</a>
   <a class="ui item" href="/account">Sign Up</a>
   <a class="ui item" href="/login">Log In</a>
-  <a class="ui item" href="/inputdata">Input data</a>
-  <a class="ui active item" href="/report">Report</a>
+  <a class="ui item" href="/inputData">Input data</a>
+  <a class="ui active item" href="/ReportController">Report</a>
   <a class="ui item" href="/contact">Contact</a>
   <a class="ui item" href="/logout">Log Out</a>
 </nav>
 
 <section class="ui segment">      
   <h4>Define the region for which you require a report</h4>
-  <form action="/report/generateReport" method="POST">    
+  <form action="/generateReport" method="POST">    
     Size and position circle to select region for report 
     <div id="map_canvas"></div>
     <br>
@@ -36,6 +27,5 @@
 </section>
 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-<script src="/public/javascripts/reportmap.js" type="text/javascript" charset="utf-8"></script>   </body>
+<script src="/public/javascripts/reportmap.js" type="text/javascript" charset="utf-8"></script>  
 
-</html>

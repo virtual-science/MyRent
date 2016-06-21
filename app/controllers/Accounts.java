@@ -29,7 +29,7 @@ public class Accounts extends Controller {
 
 	public static void logout() {
 		session.clear();
-		Home.index();
+		Welcome.index();
 	}
 
 	public static void authenticate(String email, String password) {

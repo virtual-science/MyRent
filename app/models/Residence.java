@@ -12,6 +12,7 @@ import javax.persistence.ManyToOne;
 
 import play.Logger;
 import play.db.jpa.Model;
+import utils.LatLng;
 
 @Entity
 public class Residence extends Model {
@@ -46,4 +47,6 @@ public class Residence extends Model {
 		Logger.info("Date Created On " + createOn + " postDate " + dformat.format(createOn));
 		return dformat.format(createOn);
 }
+
+	
 }

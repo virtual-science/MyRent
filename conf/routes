@@ -3,7 +3,12 @@
 # ~~~~
 
 # Home page
-GET     /                                       Home.index
+GET     /                                       Welcome.index
+
+# Report
+
+GET     /renderReport        		            ReportController.index
+POST 	/generateReport							ReportController.generateReport
 
 # Accounts page
 GET     /signup									Accounts.signup
