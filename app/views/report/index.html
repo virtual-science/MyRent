@@ -1,40 +1,41 @@
 #{extends 'main.html' /} #{set title:'Welcome' /}
 
- 
- <nav class="ui inverted teal menu">
-  <a class="ui item" href="/">Welcome</a>
-  <a class="ui item" href="/signup">Sign Up</a>
-  <a class="ui item" href="/login">Log In</a>
-  <a class="ui item" href="/inputData">Input data</a>
-  <a class="ui active item" href="/ReportController">Report</a>
-  <a class="ui item" href="/contact">Contact</a>
-  <a class="ui item" href="/logout">Log Out</a>
+
+<nav class="ui inverted teal menu">
+	<a class="ui item" href="/">Welcome</a> <a class="ui item"
+		href="/signup">Sign Up</a> <a class="ui item" href="/login">Log In</a>
+	<a class="ui item" href="/inputData">Input data</a> <a
+		class="ui active item" href="/ReportController">Report</a> <a
+		class="ui item" href="/contact">Contact</a> <a class="ui item"
+		href="/logout">Log Out</a>
 </nav>
 
-<section class="ui segment">      
-  <h3>Define the region for which you require a report</h3>
-  <form action="/generateReport" method="POST">    
-    Size and position circle to select region for report 
-    <div id="map_canvas"></div>
-    <br>
-    <button type="submit" class="ui blue submit button" onclick="requestReport()">Generate Report</button>
-    <div style="visibility: hidden" name="circledata" id="circledata">
-      <input type="text"  id="radius" name="radius">
-      <input type="text"  id="latcenter" name="latcenter">
-      <input type="text"  id="lngcenter" name="lngcenter">
-    </div>
-  </form>
+<section class="ui segment">
+	<h3>Define the region for which you require a report</h3>
+	<form action="/generateReport" method="POST">
+		Size and position circle to select region for report
+		<div id="map_canvas"></div>
+		<br>
+		<button type="submit" class="ui blue submit button"
+			onclick="requestReport()">Generate Report</button>
+		<div style="visibility: hidden" name="circledata" id="circledata">
+			<input type="text" id="radius" name="radius"> <input
+				type="text" id="latcenter" name="latcenter"> <input
+				type="text" id="lngcenter" name="lngcenter">
+		</div>
+	</form>
 </section>
 
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-<script src="/public/javascripts/reportmap.js" type="text/javascript" charset="utf-8"></script>  
+<script
+	src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script src="/public/javascripts/reportmap.js" type="text/javascript"
+	charset="utf-8"></script>
 
 <style>
- #map_canvas { width : 100%;
- height : 500px;
- border: solid thin #FF0000;
- margin-top: 10px;
- 
- }
-
+#map_canvas {
+	width: 100%;
+	height: 500px;
+	border: solid thin #FF0000;
+	margin-top: 10px;
+}
 </style>

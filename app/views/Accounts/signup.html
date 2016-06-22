@@ -1,52 +1,52 @@
 #{extends 'main.html' /} #{set title:'Signup' /}
 
-
 <nav class="ui inverted teal menu">
-    <a class=" item" href="/">Welcome</a>
-    <a class="active item" href="/signup"> Sign Up</a>
-    <a class="item" href="/login"> Login</a>
-    <a class="item" href="/inputData">Input data</a>
-    <a class="ui item" href="/renderReport">Report</a>
-	<a class="ui item" href="/contact">Contact</a>
-    <a class="ui item" href="/logout">Log Out</a>
-    </nav>
-		
-<h1> Create MyRent account </h1>
-<h3> Register using a valid email address </h3>
+	<a class=" item" href="/">Welcome</a> <a class="active item"
+		href="/signup"> Sign Up</a> <a class="item" href="/login"> Login</a> <a
+		class="item" href="/inputData">Input data</a> <a class="ui item"
+		href="/renderReport">Report</a> <a class="ui item" href="/contact">Contact</a>
+	<a class="ui item" href="/logout">Log Out</a>
+</nav>
+
+<h1>Create MyRent account</h1>
+<h3>Register using a valid email address</h3>
 
 <div class="ui two column grid">
-	  <div class="column">
-	    <div class="ui fluid form segment">
-	    <form action="/register" method="POST">
-	      <div class="two fields">
-	        <div class="field">
-	          <input placeholder="First Name" name="user.firstName" type="text">
-	        </div>
-	        <div class="field">
-	          <input placeholder="Last Name" name="user.lastName" type="text">
-	        </div>
-	      </div>
-	      <div class="ui left icon input field">
-          <input placeholder="Email" name="user.email" type="text">
-          <i class="user icon"></i>
-        </div>
-        <div class="ui left icon input field">
-          <input placeholder="Password" type="password" name="user.password">
-          <i class="lock icon"></i>
-        </div>
-		
-										
-										<div class="ui column">
-	<section class="ui form segment">
-	
-		<input type="checkbox" id="usCitizen" name="terms"> <label
-			for="usCitizen">I agree to the terms and conditions</label>
-										
-								</div>
+	<div class="eight wide column">
+		<div class="ui raised segment">
 
-								<button type="submit" class="ui blue submit button">Submit</button>
-							</div>
+			<div class="ui fluid form segment">
+				<form action="/register" method="POST">
+					<div class="two fields">
+						<div class="field">
+							<input placeholder="First Name" name="user.firstName" type="text">
+						</div>
+						<div class="field">
+							<input placeholder="Last Name" name="user.lastName" type="text">
 						</div>
 					</div>
-	</form>
-	</section>
+					<div class="ui left icon input field">
+						<input placeholder="Email" name="user.email" type="text">
+						<i class="user icon"></i>
+					</div>
+					<div class="ui left icon input field">
+						<input placeholder="Password" type="password" name="user.password">
+						<i class="lock icon"></i>
+					</div>
+
+
+					<div class="ui column">
+						<section class="ui form segment">
+							<input type="checkbox" id="usCitizen" name="terms"> <label
+								for="usCitizen">I agree to the terms and conditions</label>
+					</div>
+					<button type="submit" class="ui blue submit button">Submit</button>
+				</form>
+			</div>
+		</div>
+	</div>
+	<div class="two vide column">
+		<img class="ui large image" src="/public/images/sign-up.jpg">
+	</div>
+</div>
+</section>

@@ -19,8 +19,8 @@ function initialize() {
   };
   const mapDiv = document.getElementById('map_canvas');
   const map = new google.maps.Map(mapDiv, mapProp);
-  mapDiv.style.width = '500px';
-  mapDiv.style.height = '500px';
+  mapDiv.style.width = '1250px';
+  mapDiv.style.height = '450px';
 
   circle = new google.maps.Circle({
     center: center,
