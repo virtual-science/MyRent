@@ -23,9 +23,9 @@ public class inputData extends Controller {
 	}
 
 	public static void datainput(String geolocation, int rent, int numbOfBedrooms, String rented,
-			String residenceType) {
+			String residenceType, int numberOfBathrooms, int areaOfResidence) {
 		User user = Accounts.getCurrentUser();
-		Residence finder = new Residence(user, geolocation, residenceType, rented, numbOfBedrooms, rent);
+		Residence finder = new Residence(user, geolocation, residenceType, rented, numbOfBedrooms, rent, numberOfBathrooms, areaOfResidence);
 		finder.save();
 
 		index();
