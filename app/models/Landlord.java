@@ -1,3 +1,4 @@
+
 package models;
 
 import java.util.ArrayList;
@@ -12,14 +13,14 @@ import play.db.jpa.Model;
 import play.Logger;
 
 @Entity
-public class User extends Model {
+public class Landlord extends Model {
 
 	public String firstName;
 	public String lastName;
 	public String email;
 	public String password;
 
-	public User(String firstName, String lastName, String email, String password) {
+	public Landlord(String firstName, String lastName, String email, String password) {
 
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -27,7 +28,7 @@ public class User extends Model {
 		this.password = password;
 	}
 
-	public static User findByEmail(String email) {
+	public static Landlord findByEmail(String email) {
 		return find("email", email).first();
 	}
 
@@ -35,4 +36,9 @@ public class User extends Model {
 		return this.password.equals(password);
 	}
 
+	public String toString()
+	  {
+	    return firstName;
+	  }
+	
 }

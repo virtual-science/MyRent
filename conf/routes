@@ -9,22 +9,28 @@ GET     /                                       Welcome.index
 GET     /renderReport        		            ReportController.index
 POST 	/generateReport							ReportController.generateReport
 
-# Accounts page
-GET     /signup									Accounts.signup
-GET     /login                                  Accounts.login
-GET     /logout                                 Accounts.logout
+# Landlord page
+GET     /signup									Landlords.signup
+GET     /login                                  Landlords.login
+GET     /logout                                 Landlords.logout
 
-POST    /authenticate                           Accounts.authenticate
-POST    /register                               Accounts.register
+POST    /authenticate                           Landlords.authenticate
+POST    /register                               Landlords.register
 
 # inputData
 GET     /inputData                              inputData.index
 POST    /inputData/datainput					inputData.datainput
+POST    /inputData                              inputData.authenticate
 
 
 # Contact
 GET     /contact								Contact.index
 POST    /contact								Contact.storeContact
+
+# editDetails
+GET     /editDetails                             editDetails.index
+POST    /changeDetails                           editdetails.changeDetails
+
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

@@ -13,9 +13,9 @@ public class inputData extends Controller {
 	 * with the log in screen.
 	 */
 	@Before
-	static void checkAuthentification() {
+	public static void checkAuthentification() {
 		if (session.contains("logged_in_userid") == false)
-			Accounts.login();
+			Landlords.login();
 	}
 
 	public static void index() {
@@ -24,8 +24,8 @@ public class inputData extends Controller {
 
 	public static void datainput(String geolocation, int rent, int numbOfBedrooms, String rented,
 			String residenceType, int numberOfBathrooms, int areaOfResidence) {
-		User user = Accounts.getCurrentUser();
-		Residence finder = new Residence(user, geolocation, residenceType, rented, numbOfBedrooms, rent, numberOfBathrooms, areaOfResidence);
+		Landlord landlord = Landlords.getCurrentUser(); 
+		Residence finder = new Residence(landlord, geolocation, residenceType, rented, numbOfBedrooms, rent, numberOfBathrooms, areaOfResidence);
 		finder.save();
 
 		index();

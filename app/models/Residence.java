@@ -8,6 +8,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
+
 import play.Logger;
 import play.db.jpa.Model;
 import utils.LatLng;
@@ -25,11 +26,11 @@ public class Residence extends Model {
 	public int numbOfBedrooms;
 
 	@ManyToOne
-	public User from;
+	public Landlord from;
 	public int numberOfBathrooms;
 	public int areaOfResidence;
 
-	public Residence(User from, String geolocation, String residenceType, String rented, int numbOfBedrooms, int rent, int numberOfBathrooms, int areaOfResidence) {
+	public Residence(Landlord from, String geolocation, String residenceType, String rented, int numbOfBedrooms, int rent, int numberOfBathrooms, int areaOfResidence) {
 
 		this.from = from;
 		this.geolocation = geolocation;
