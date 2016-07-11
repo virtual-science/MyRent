@@ -7,20 +7,25 @@ import play.mvc.*;
 import java.util.*;
 import models.*;
 
-public class Landlords extends Controller {
+public class Tenant extends Controller {
 	public static void signup() {
-		render("Landlord/signup.html");
+		render("Tenant/signup.html");
 	}
 
 	public static void register(String firstName, String lastName, String email, String password, boolean terms) {
 		Logger.info(firstName + " " + lastName + " " + email + " " + password);
-		Landlord landlord = new Landlord (firstName, lastName, email, password);
+		Tenant tenant = new Tenant ();
 		if (terms != false) {
-			landlord.save();
+			tenant.save();
 			login();
 		} else {
 			signup();
 		}
+	}
+
+	private void save() {
+		// TODO Auto-generated method stub
+		
 	}
 
 	public static void login() {
@@ -62,9 +67,9 @@ public class Landlords extends Controller {
 			Welcome.index();
 		}
 	 
-	 // Render the Landlord index page
+	 // Render the Tenant index page
 	 public static void index(){
-		 render("Landlord/index.html");
+		 render();
 	 }
 
 	 }

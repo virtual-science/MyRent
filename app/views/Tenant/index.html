@@ -1,15 +1,17 @@
 #{extends 'main.html' /}
-#{set title:'Welcome' /}
+#{set title:'Tenant' /}
 
- <nav class="ui inverted teal menu">
-	<a class="active item" href="/">Welcome</a> 
-	<a class="item" href="/index"> Landlord</a>
-	<a class="item" href="/tenant"> Tenant</a>
-</nav>
+  <nav class="ui inverted teal menu">
+	<a class="item" href="/">Welcome</a> 
+	<a class="active item" href="/">Tenant</a>
+	<a class="item" href="/signup"> Sign Up</a>
+	<a class="item" href="/login"> Login</a>
+	<a class="item" href="/logout">Log Out</a>
+	</nav>
 
 <section class="ui segment">
 
-<h1> Welcome to MyRent </h1>
+<h1> Welcome to Tenant Page </h1>
 <h3> Your guide to residential property </h3>
 
 <div class="ui two column grid">
@@ -29,7 +31,7 @@
    </div>
    </div>
    <div class="two vide column">
-   <img class="ui large image" src="/public/images/home.jpg">
+   <img class="ui large image" src="/public/images/tenant.jpg">
    </div>
    </div>
    </section>

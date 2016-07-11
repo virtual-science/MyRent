@@ -10,12 +10,19 @@ GET     /renderReport        		            ReportController.index
 POST 	/generateReport							ReportController.generateReport
 
 # Landlord page
+GET     /index                                  Landlords.index
 GET     /signup									Landlords.signup
 GET     /login                                  Landlords.login
 GET     /logout                                 Landlords.logout
-
 POST    /authenticate                           Landlords.authenticate
 POST    /register                               Landlords.register
+
+# Tenant page
+GET     /tenant                                 Tenant.index
+GET     /signup									Tenant.signup
+GET     /login                                  Tenant.login
+GET     /logout                                 Tenant.logout
+
 
 # inputData
 GET     /inputData                              inputData.index
@@ -30,7 +37,6 @@ POST    /contact								Contact.storeContact
 # editDetails
 GET     /editDetails                             editDetails.index
 POST    /changeDetails                           editdetails.changeDetails
-
 
 # Ignore favicon requests
 GET     /favicon.ico                            404
