@@ -17,13 +17,24 @@ public class Landlord extends Model {
 
 	public String firstName;
 	public String lastName;
+	public String address1;
+	public String address2;
+	public String city;
+	public String county;
 	public String email;
 	public String password;
 
-	public Landlord(String firstName, String lastName, String email, String password) {
+	@OneToMany(mappedBy = "from", cascade = CascadeType.ALL) 
+	  public List<Residence> residences = new ArrayList<>();
+	
+		public Landlord(String firstName, String lastName, String address1, String address2, String city, String county, String email, String password) {
 
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.address1 = address1;
+		this.address2 = address2;
+		this.city = city;
+		this.county = county;
 		this.email = email;
 		this.password = password;
 	}

@@ -29,17 +29,22 @@ import play.db.jpa.Blob;
  	    	Landlord.edit1(); 
  	    } 
  	  } 
- 	  	public static void changeDetails(String firstName, String lastName, String email, String password) 
+ 	  	public static void changeDetails(String firstName, String lastName, String address1, String address2, String city, String county, String email, String password) 
  	  { 
- 	    Logger.info("New details are: " + firstName + " " + lastName + " " + email + " " + password); 
+ 	    Logger.info("New details are: " + firstName + " " + lastName + " " + address1 + " " + address2 + " " + city + " " + county + " " + email + " " + password); 
 	    String landrloardId = session.get("logged_in_userid"); 
 	    Landlord landlord = Landlord.findById(Long.parseLong(landrloardId)); 
 	    landlord.firstName = firstName; 
 	    landlord.lastName = lastName; 
+	    landlord.address1 = address1;
+	    landlord.address2 = address2;
+ 	    landlord.city = city;
+ 	    landlord.county = county;
  	    landlord.email = email;  
- 	    landlord.password = password;  
+	    landlord.password = password;
  	    landlord.findById(Long.parseLong(landrloardId)); 
  	    landlord.save(); 
  	    Welcome.index(); 
+ 	    render();
  	  } 
  } 

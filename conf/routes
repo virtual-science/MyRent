@@ -18,16 +18,21 @@ POST    /authenticate                           Landlords.authenticate
 POST    /register                               Landlords.register
 
 # Tenant page
-GET     /tenant                                 Tenant.index
-GET     /signup									Tenant.signup
-GET     /login                                  Tenant.login
-GET     /logout                                 Tenant.logout
+GET     /tenant                                 Tenants.index
+GET     /signup									Tenants.signup
+GET     /login                                  Tenants.login
+GET     /logout                                 Tenants.logout
 
 
 # inputData
 GET     /inputData                              inputData.index
 POST    /inputData/datainput					inputData.datainput
 POST    /inputData                              inputData.authenticate
+
+# inputTenantData
+GET     /inputTenantData                        inputTenantData.index
+POST    /inputTenantData                        inputTenantData.datainput
+POST    / inputTenantData                       inputTenantData.authenticate 
 
 
 # Contact

@@ -7,14 +7,14 @@ import play.mvc.*;
 import java.util.*;
 import models.*;
 
-public class Tenant extends Controller {
+public class Tenants extends Controller {
 	public static void signup() {
 		render("Tenant/signup.html");
 	}
 
 	public static void register(String firstName, String lastName, String email, String password, boolean terms) {
 		Logger.info(firstName + " " + lastName + " " + email + " " + password);
-		Tenant tenant = new Tenant ();
+		Tenant tenant = new Tenant (firstName, lastName, email, password);
 		if (terms != false) {
 			tenant.save();
 			login();
@@ -23,23 +23,18 @@ public class Tenant extends Controller {
 		}
 	}
 
-	private void save() {
-		// TODO Auto-generated method stub
-		
-	}
-
 	public static void login() {
-		render("Landlord/login.html");
+		render("Tenant/login.html");
 	}
 
-	public static void authenticate(String email, String password) {
+	public static void authenticates(String email, String password) {
 		Logger.info("Attempting to authenticate with " + email + ":" + password);
 
-		Landlord landlord = Landlord.findByEmail(email);
-		if ((landlord != null) && (landlord.checkPassword(password) == true)) {
-			Logger.info("Successfully authentication of " + landlord.firstName);
-			session.put("logged_in_userid", landlord.id);
-			inputData.index();
+		Tenant tenant= Tenant.findByEmail(email);
+		if ((tenant!= null) && (tenant.checkPassword(password) == true)) {
+			Logger.info("Successfully authentication of " + tenant.firstName);
+			session.put("logged_in_userid", tenant.id);
+			inputTenantData.index();
 		} else {
 			Logger.info("Authentication failed");
 			login();
@@ -47,12 +42,12 @@ public class Tenant extends Controller {
 
 	}
 
-	public static Landlord getCurrentUser() {
+	public static Tenant getCurrentUser() {
 		String userId = session.get("logged_in_userid");
 		if (userId == null) {
 			return null;
 		}
-		Landlord logged_in_user = Landlord.findById(Long.parseLong(userId));
+		Tenant logged_in_user = Tenant.findById(Long.parseLong(userId));
 		Logger.info("In Accounts controller: Logged in user is " + logged_in_user.firstName);
 		return logged_in_user;
 	}
@@ -69,7 +64,7 @@ public class Tenant extends Controller {
 	 
 	 // Render the Tenant index page
 	 public static void index(){
-		 render();
+		 render("Tenant/index.html");
 	 }
 
 	 }

@@ -7,7 +7,7 @@
 	<a class="active item" href="/inputData">Input data</a>
 	<a class="item" href="/renderReport">Report data</a>
 	<a class="item" href="/contact">Contact</a>
-	<a class="item" href="/editDetails">Edit Details</a>
+	<a class="item" href="/editDetails">Edit Profile</a>
 	<a class="item" href="/logout">Log Out</a>
 </nav>
 <h2 class="ui blue header"> Please Edit the Landlord Detail</h2>
@@ -24,7 +24,33 @@
 	      <label>Last Name</label>
 	      <input placeholder="Last Name" type="text" name="lastName">
 	    </div>
-	  </div> 
+	  </div> <div class="two fields">
+						<div class="field">
+						    <label> Address Line 1 </label>
+							<input placeholder="address1" name="landlord.address1"
+								type="text" required>
+						</div>
+						<div class="field">
+						      <label> Address Line 2</label>
+							<input placeholder="address2" name="landlord.address2"
+								type="text" required>
+						</div>
+					</div>
+
+					<div class="two fields">
+						<div class="field">
+						   <label> City </label> 
+							<input placeholder="city" name="landlord.city" type="text"
+								required>
+						</div>
+						<div class="field">
+						    <label>County </label>
+							<input placeholder="county" name="landlord.county" type="text"
+								required>
+						</div>
+					</div>
+	  
+	  
     <div class="field">
 	    <label>Email</label>
 	    <input placeholder="Email" type="text" name="email">
@@ -36,7 +62,7 @@
 	  <button class="ui blue submit button">Edit Details</button>
 	</form>
 	 <i class="right triangle icon"></i>
-	<a href="/home">Return Home </a>
+	<a href="/welcome/index">Return Home </a>
 </section>  
 
 <script src="/public/javascripts/editDetails.js" type="text/javascript" charset="utf-8"></script>

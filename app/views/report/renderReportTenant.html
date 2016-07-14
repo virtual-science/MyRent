@@ -17,7 +17,6 @@
 	<div class="fourteen wide column">
 		<section class="ui segment"></section>
 
-
 		<h3>Report</h3>
 		<section class="ui segment">
 			<table class="ui table segment">
@@ -31,7 +30,7 @@
 				</thead>
 				<tbody>
 					<tr>
-						<td>${landlord.firstName} ${landlord.lastName}</td>
+						<td>${tenant.firstName} ${tenant.lastName}</td>
 						<td>${circle.radius}</td>
 						<td>${circle.latcenter}</td>
 						<td>${circle.lngcenter}</td>
@@ -65,7 +64,7 @@
 						<td>${render.rent}</td>
 						<td><i class="home icon"></i>${render.residenceType}</td>
 						<td><i class="bed icon"></i>${render.numbOfBedrooms}</td>
-						<td><i class="male icon"></i>${render.numberOfBathrooms}</td>
+						<td><i class="bathroom icon"></i>${render.numberOfBathrooms}</td>
 						<td><i class="area icon"></i>${render.areaOfResidence}</td>
 					</tr>
 					#{/list}
