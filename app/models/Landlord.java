@@ -52,9 +52,7 @@ public class Landlord extends Model {
 	    return firstName;
 	  }
 
-	public static void edit1() {
-		// TODO Auto-generated method stub
+	
 		
 	}
 	
-}

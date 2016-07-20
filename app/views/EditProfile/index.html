@@ -1,13 +1,13 @@
-#{extends 'main.html' /} #{set title:'editDetails' /}
+#{extends 'main.html' /} #{set title:'EditProfile'/}
  
 <nav class="ui inverted teal menu">
 	<a class="item" href="/">Welcome</a> 
 	<a class="item" href="/signup"> Sign Up</a>
 	<a class="item" href="/login"> Login</a> 
-	<a class="active item" href="/inputData">Input data</a>
+	<a class="item" href="/inputData">Input data</a>
 	<a class="item" href="/renderReport">Report data</a>
 	<a class="item" href="/contact">Contact</a>
-	<a class="item" href="/editDetails">Edit Profile</a>
+	<a class="active item" href="/EditProfiles">Edit Profile</a>
 	<a class="item" href="/logout">Log Out</a>
 </nav>
 <h2 class="ui blue header"> Please Edit the Landlord Detail</h2>
@@ -27,12 +27,12 @@
 	  </div> <div class="two fields">
 						<div class="field">
 						    <label> Address Line 1 </label>
-							<input placeholder="address1" name="landlord.address1"
+							<input placeholder="address1" name="address1"
 								type="text" required>
 						</div>
 						<div class="field">
 						      <label> Address Line 2</label>
-							<input placeholder="address2" name="landlord.address2"
+							<input placeholder="address2" name="address2"
 								type="text" required>
 						</div>
 					</div>
@@ -40,17 +40,16 @@
 					<div class="two fields">
 						<div class="field">
 						   <label> City </label> 
-							<input placeholder="city" name="landlord.city" type="text"
+							<input placeholder="city" name="city" type="text"
 								required>
 						</div>
 						<div class="field">
 						    <label>County </label>
-							<input placeholder="county" name="landlord.county" type="text"
+							<input placeholder="county" name="county" type="text"
 								required>
 						</div>
 					</div>
-	  
-	  
+	  	  
     <div class="field">
 	    <label>Email</label>
 	    <input placeholder="Email" type="text" name="email">

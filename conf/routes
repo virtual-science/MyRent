@@ -29,19 +29,19 @@ GET     /inputData                              inputData.index
 POST    /inputData/datainput					inputData.datainput
 POST    /inputData                              inputData.authenticate
 
-# inputTenantData
-GET     /inputTenantData                        inputTenantData.index
-POST    /inputTenantData                        inputTenantData.datainput
-POST    / inputTenantData                       inputTenantData.authenticate 
-
-
 # Contact
 GET     /contact								Contact.index
 POST    /contact								Contact.storeContact
 
-# editDetails
-GET     /editDetails                             editDetails.index
-POST    /changeDetails                           editdetails.changeDetails
+# editProfile
+GET     /editProfiles                            EditProfiles.index
+POST    /changeDetails                           EditProfiles.changeDetails
+
+# residence 
+GET    /landlords/editresidence                  landlords/editresidence
+POST   /landlords				                 configuration.index
+POST   /landlords/deleteresidence/{deleteresidence} Landlords.deleteresidence
+
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

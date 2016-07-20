@@ -34,7 +34,7 @@ public class Landlords extends Controller {
 		if ((landlord != null) && (landlord.checkPassword(password) == true)) {
 			Logger.info("Successfully authentication of " + landlord.firstName);
 			session.put("logged_in_userid", landlord.id);
-			inputData.index();
+			Configurations.index();
 		} else {
 			Logger.info("Authentication failed");
 			login();
