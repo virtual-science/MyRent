@@ -19,15 +19,20 @@ public class Configurations extends Controller {
 	}
 
 	public static void index() {
-		render("Landlord/configuration.html");
+		List<Residence> allResidence = Residence.findAll();
+		
+		render("Landlord/configuration.html", allResidence);
 	}
 	
-	public static void deleteresidence(Long deleteresidence) {
+	/*public static void deleteresidence(Long deleteresidence) {
+		
+		Logger.info("lng id is:  " +  deleteresidence);
 
 		Residence residence = Residence.findById(deleteresidence);
+		residence.from = null;
+		residence.save();
 		residence.delete();
 
-		index();
+		index();*/
 	
-}
 }

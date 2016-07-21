@@ -64,7 +64,23 @@ public class Landlords extends Controller {
 	 
 	 // Render the Landlord index page
 	 public static void index(){
+		 
 		 render("Landlord/index.html");
 	 }
 
-	 }
+	 // Method to delete resident from list
+	 public static void deleteresidence(Long deleteresidence) {
+			Logger.info("lng id is:  " +  deleteresidence);
+			Residence residence = Residence.findById(deleteresidence);
+			residence.from = null;
+			residence.save();
+			residence.delete();
+			Configurations.index();
+}
+	 
+	 // Method to Edit resident from list
+	 public static void editresidence() {
+		 	//Landlords.editresidence();
+		 	render("Landlord/updateresidence.html");
+}
+}

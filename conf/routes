@@ -38,10 +38,9 @@ GET     /editProfiles                            EditProfiles.index
 POST    /changeDetails                           EditProfiles.changeDetails
 
 # residence 
-GET    /landlords/editresidence                  landlords/editresidence
-POST   /landlords				                 configuration.index
-POST   /landlords/deleteresidence/{deleteresidence} Landlords.deleteresidence
-
+GET    /editredidence                            Landlords.editresidence
+GET    /landlords                                Landlords/deleteresidence
+POST   /landlords/deleteresidence                Landlords.deleteresidence
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

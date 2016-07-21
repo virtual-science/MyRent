@@ -1,7 +1,7 @@
 $(document).ready(function () { 
    $('#editresidence').dropdown();
    
-  $('#deleteresidence').dropdown(); 
+ $('#deleteresidence').dropdown(); 
  
  
    $('.ui.form').form({ 
