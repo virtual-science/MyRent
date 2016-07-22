@@ -69,18 +69,37 @@ public class Landlords extends Controller {
 	 }
 
 	 // Method to delete resident from list
-	 public static void deleteresidence(Long deleteresidence) {
-			Logger.info("lng id is:  " +  deleteresidence);
-			Residence residence = Residence.findById(deleteresidence);
-			residence.from = null;
-			residence.save();
+	 public static void deleteresidence(String eircode) {
+		 
+		 Landlord landlord = Landlords.getCurrentUser();
+		 
+			Logger.info("eircode is:  " +  eircode);
+			Residence residence = Residence.findByEircode(eircode);
+			//residence.from = null;
+			
+			landlord.residences.remove(eircode);
+			landlord.save();
 			residence.delete();
 			Configurations.index();
 }
 	 
 	 // Method to Edit resident from list
-	 public static void editresidence() {
-		 	//Landlords.editresidence();
-		 	render("Landlord/updateresidence.html");
-}
+	 public static void editresidence(String eircode) {
+		 	Residence residence = Residence.findByEircode(eircode);
+		 	render("Landlord/updateresidence.html", residence);
+	 }
+		 	
+		 	// update residence record
+		 	public static void updateresidence (int rent, String eircode) {
+		 		
+		 		 Landlord landlord = Landlords.getCurrentUser();
+		 		Residence residence = Residence.findByEircode(eircode);
+		 		residence.rent = rent ;
+		 		residence.save();
+		 		render("Landlord/configuration.html", residence, landlord);
+		 		Configurations.index();
+		 		
+		 	}
+		 	
+
 }

@@ -16,6 +16,7 @@ GET     /login                                  Landlords.login
 GET     /logout                                 Landlords.logout
 POST    /authenticate                           Landlords.authenticate
 POST    /register                               Landlords.register
+GET     /updateresidence                        Landlords.updateresidence
 
 # Tenant page
 GET     /tenant                                 Tenants.index

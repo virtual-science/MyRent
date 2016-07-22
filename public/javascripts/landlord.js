@@ -7,7 +7,7 @@ $(document).ready(function () {
    $('.ui.form').form({ 
      fields: { 
     	 deleteresidence: { 
-         identifier: 'deleteresidence', 
+         identifier: 'eircode', 
          rules: [{ 
            type: 'empty', 
            prompt: 'Please Select from the dropdown residence to delete', 

@@ -19,9 +19,16 @@ public class Configurations extends Controller {
 	}
 
 	public static void index() {
+		Landlord landlord = Landlords.getCurrentUser();
 		List<Residence> allResidence = Residence.findAll();
+		List<Residence>  residences = new ArrayList<Residence>();
+		for (Residence res : allResidence ){
+			if (landlord.equals(res.from)){
+				residences.add(res);
+			}
+		}
 		
-		render("Landlord/configuration.html", allResidence);
+		render("Landlord/configuration.html",landlord , residences);
 	}
 	
 	/*public static void deleteresidence(Long deleteresidence) {

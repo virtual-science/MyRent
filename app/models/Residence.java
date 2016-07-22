@@ -20,6 +20,7 @@ public class Residence extends Model {
 	public String geolocation;
 	public String postDate;
 	public String residenceType;
+	public String eircode;
 	
 
 	public int rent; // how much rent is
@@ -27,10 +28,12 @@ public class Residence extends Model {
 
 	@ManyToOne
 	public Landlord from;
+	
+	
 	public int numberOfBathrooms;
 	public int areaOfResidence;
 
-	public Residence(Landlord from, String geolocation, String residenceType, String rented, int numbOfBedrooms, int rent, int numberOfBathrooms, int areaOfResidence) {
+	public Residence(Landlord from, String geolocation, String residenceType, String rented, int numbOfBedrooms, int rent, int numberOfBathrooms, int areaOfResidence, String eircode) {
 
 		this.from = from;
 		this.geolocation = geolocation;
@@ -41,6 +44,7 @@ public class Residence extends Model {
 		this.numberOfBathrooms = numberOfBathrooms;
 		this.areaOfResidence = areaOfResidence;
 		postDate = dateValidator();
+		this.eircode = eircode;
 	}
 
 	public String dateValidator() {
@@ -50,5 +54,12 @@ public class Residence extends Model {
 		Logger.info("Date Created On " + createOn + " postDate " + dformat.format(createOn));
 		return dformat.format(createOn);
 	}
-
+	
+	public static Residence findByEircode (String eircode){
+		
+		return find("eircode", eircode).first();
+		
+	}
+	
+	
 }

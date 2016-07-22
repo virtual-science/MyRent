@@ -59,6 +59,7 @@ Residence(residence1):
     rented: vacant
     from: bart
     areaOfResidence: 3200
+    eircode: W23 X433
     
 Residence(residence2):
     residenct: homer
@@ -71,6 +72,7 @@ Residence(residence2):
     rented: vacant
     from: marge
     areaOfResidence: 2500
+    eircode: V94 D922
    
 Residence(residence3):
     residence_id: 3
@@ -83,6 +85,7 @@ Residence(residence3):
     rented: vacant
     from: homer
     areaOfResidence: 2650
+    eircode: F92 DYY9
     
 Residence(residence4):
     residence_id: 4
@@ -91,10 +94,12 @@ Residence(residence4):
     numberOfBathrooms: 2
     postDate: Mon 11/11/15 - 01:15 PM
     rent: 3500
+    eircode: G91 X28D
     residenceType: Studio
     rented: vacant
     from: homer
     areaOfResidence: 2410
+    eircode: W91 X934
     
 Residence(residence5):
     residence_id: 5
@@ -107,7 +112,8 @@ Residence(residence5):
     rented: vacant
     from: bart
     areaOfResidence: 4100
-    
+    eircode: X92 Y433
+        
 Residence(residence6):
     residence_id: 6
     geolocation: 52.9949762,-7.7514982
@@ -119,6 +125,7 @@ Residence(residence6):
     rented: vacant
     from: maggie
     areaOfResidence: 1200
+    eircode: R95 TDY9
     
 Tenant(klovn):
     firstName: Klovn
