@@ -17,7 +17,6 @@ import utils.LatLng;
 @Entity
 public class Residence extends Model {
 
-	public String rented; // rented or vacant
 	public String geolocation;
 	public String postDate;
 	public String residenceType;
@@ -36,12 +35,11 @@ public class Residence extends Model {
 	
 	
 
-	public Residence(Landlord from, String geolocation, String residenceType, String rented, int numbOfBedrooms, int rent, int numberOfBathrooms, int areaOfResidence, String eircode) {
+	public Residence(Landlord from, String geolocation, String residenceType, int numbOfBedrooms, int rent, int numberOfBathrooms, int areaOfResidence, String eircode) {
 
 		this.from = from;
 		this.geolocation = geolocation;
 		this.residenceType = residenceType;
-		this.rented = rented;
 		this.rent = rent;
 		this.numbOfBedrooms = numbOfBedrooms;
 		this.numberOfBathrooms = numberOfBathrooms;
