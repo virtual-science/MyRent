@@ -20,6 +20,11 @@ public class Tenant extends Model {
 	public String lastName;
 	public String email;
 	public String password;
+	
+	
+@OneToOne
+public Residence residence;
+
 
 	public Tenant(String firstName, String lastName, String email, String password) {
      	this.firstName = firstName;

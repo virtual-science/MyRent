@@ -14,7 +14,7 @@ public class Landlords extends Controller {
 
 	public static void register(String firstName, String lastName, String address1, String address2, String city, String county, String email, String password, boolean terms) {
 		Logger.info(firstName + " " + lastName + " " + email + " " + password);
-		Landlord landlord = new Landlord (firstName, lastName, address1, address2, city, county, email, password);
+		Landlord landlord = new Landlord (firstName, lastName, address1, address2, city, county, email, password, password);
 		if (terms != false) {
 			landlord.save();
 			login();
