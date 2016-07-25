@@ -23,7 +23,7 @@ GET     /tenant                                 Tenants.index
 GET     /signup									Tenants.signup
 GET     /login                                  Tenants.login
 GET     /logout                                 Tenants.logout
-
+GET     /inputTenantData                        inputTenantData.index();s
 
 # inputData
 GET     /inputData                              inputData.index

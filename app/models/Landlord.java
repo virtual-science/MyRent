@@ -23,12 +23,12 @@ public class Landlord extends Model {
 	public String county;
 	public String email;
 	public String password;
-	public String residence;
+	//public String residence;
 
 	@OneToMany(mappedBy = "from", cascade = CascadeType.ALL) 
 	  public List<Residence> residences = new ArrayList<Residence>();
 	
-		public Landlord(String firstName, String lastName, String address1, String address2, String city, String county, String email, String password, String residence) {
+		public Landlord(String firstName, String lastName, String address1, String address2, String city, String county, String email, String password) {
 
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -38,7 +38,7 @@ public class Landlord extends Model {
 		this.county = county;
 		this.email = email;
 		this.password = password;
-		this.residence = residence;
+		//this.residence = residence;
 	}
 
 	public static Landlord findByEmail(String email) {

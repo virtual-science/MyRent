@@ -31,15 +31,5 @@ public class Configurations extends Controller {
 		render("Landlord/configuration.html",landlord , residences);
 	}
 	
-	/*public static void deleteresidence(Long deleteresidence) {
 		
-		Logger.info("lng id is:  " +  deleteresidence);
-
-		Residence residence = Residence.findById(deleteresidence);
-		residence.from = null;
-		residence.save();
-		residence.delete();
-
-		index();*/
-	
 }

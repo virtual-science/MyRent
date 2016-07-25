@@ -7,7 +7,7 @@ Landlord(homer):
     address2: Cork Road
     city: Waterford
     county: Waterford
-    residences: (residence1, residence2, residence3)
+    residences: [residence1, residence2, residence3]
 
 Landlord(marge):
     firstName: Marge
@@ -18,6 +18,7 @@ Landlord(marge):
     address2: Yellow Road
     city: Cork
     county: Cork  
+    residences: [residence4]
 
 Landlord(maggie):
     firstName: Maggie
@@ -29,6 +30,7 @@ Landlord(maggie):
     address2: Dunmore Road
     city: Waterford
     county: Waterford
+    residences: [residence6]
 
 Landlord(lisa):
     firstName: Lisa
@@ -39,6 +41,7 @@ Landlord(lisa):
     address2: Tramore Road
     city: Dublin
     county: Dublin
+    residences: [residence7]
 
 Landlord(bart):
     firstName: Bart
@@ -49,6 +52,7 @@ Landlord(bart):
     address2: Poluberry Road
     city: Tramore
     county: Waterford
+    residences: [residence5]
     
 Residence(residence1):
     geolocation: 53.220565,-6.659308
@@ -57,26 +61,24 @@ Residence(residence1):
     postDate: Mon 11/11/15 - 01:15 PM
     rent: 5500
     residenceType: Studio
-    from: bart
     areaOfResidence: 3200
     eircode: W23 X433
-    lardlord: homer
+    from: homer
     tenant: barney
     
 Residence(residence2):
-    residenct: homer
+    from: homer
     geolocation: 52.9949762,-7.7514982
     numbOfBedrooms: 5
     numberOfBathrooms: 3
     postDate: Mon 11/11/15 - 01:15 PM
     rent: 4250
     residenceType: Studio
-    from: marge
     areaOfResidence: 2500
     eircode: V94 D922
+    tenant: ned
    
 Residence(residence3):
-    residence_id: 3
     geolocation: 52.9949762,-7.7514982
     numbOfBedrooms: 4
     numberOfBathrooms: 2
@@ -86,9 +88,9 @@ Residence(residence3):
     from: homer
     areaOfResidence: 2650
     eircode: F92 DYY9
+    tenant: moe
     
 Residence(residence4):
-    residence_id: 4
     geolocation: 52.9949762,-7.7514982
     numbOfBedrooms: 4
     numberOfBathrooms: 2
@@ -96,12 +98,12 @@ Residence(residence4):
     rent: 3500
     eircode: G91 X28D
     residenceType: Studio
-    from: homer
+    from: marge
     areaOfResidence: 2410
     eircode: W91 X934
+    tenant: krusty
     
 Residence(residence5):
-    residence_id: 5
     geolocation: 52.9949762,-7.7514982
     numbOfBedrooms: 3
     numberOfBathrooms: 1
@@ -111,9 +113,9 @@ Residence(residence5):
     from: bart
     areaOfResidence: 4100
     eircode: X92 Y433
+    tenant: klovn
         
 Residence(residence6):
-    residence_id: 6
     geolocation: 52.9949762,-7.7514982
     numbOfBedrooms: 3
     numberOfBathrooms: 1
@@ -124,29 +126,44 @@ Residence(residence6):
     areaOfResidence: 1200
     eircode: R95 TDY9
     
+Residence(residence7):
+    geolocation: 52.9949762,-7.7514982
+    numbOfBedrooms: 3
+    numberOfBathrooms: 1
+    postDate: Mon 11/11/15 - 01:15 PM
+    rent: 2500
+    residenceType: Studio
+    from: lisa
+    areaOfResidence: 1200
+    eircode: R95 TXX9
+    
 Tenant(klovn):
     firstName: Klovn
     lastName: Krasti
     email: klovn@Krasti.com
     password: secret
+    residence: residence5
     
 Tenant(krusty):
     firstName: Krusty
     lastName: clown
     email: krusty@clown.com
     password: secret
+    residence: residence4
     
 Tenant(moe):
     firstName: Moe
     lastName: Szyslak
     email: moe@szyslak.com
     password: secret
+    residence: residence3
     
 Tenant(ned):
     firstName: Ned
     lastName: Flanders
     email: ned@flenders.com
     password: secret
+    residence: residence2
     
 Tenant(barney):
     firstName: Barney

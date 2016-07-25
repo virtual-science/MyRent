@@ -22,10 +22,10 @@ public class inputData extends Controller {
 		render();
 	}
 
-	public static void datainput(String geolocation, int rent, int numbOfBedrooms, String rented,
-		String residenceType, int numberOfBathrooms, int areaOfResidence, String eircode) {
+	public static void datainput(String geolocation, int rent, int numbOfBedrooms, 
+		String residenceType, int numberOfBathrooms, int areaOfResidence, String eircode, String rented) {
 		Landlord landlord = Landlords.getCurrentUser(); 
-		Residence finder = new Residence(landlord, geolocation, residenceType, numbOfBedrooms, rent, numberOfBathrooms, areaOfResidence, eircode);
+		Residence finder = new Residence(landlord, geolocation, residenceType, numbOfBedrooms, rent, numberOfBathrooms, areaOfResidence, eircode, rented);
 		finder.save();
 
 		index();
