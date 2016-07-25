@@ -14,7 +14,7 @@ public class Configurations extends Controller {
 	 */
 	@Before
 	public static void checkAuthentification() {
-		if (session.contains("logged_in_userid") == false)
+		if (session.contains("logged_in_landlordid") == false)
 			Landlords.login();
 	}
 

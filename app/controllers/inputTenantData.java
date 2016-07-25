@@ -14,7 +14,7 @@ public class inputTenantData extends Controller {
 	 */
 	@Before
 	public static void checkAuthentification() {
-		if (session.contains("logged_in_userid") == false)
+		if (session.contains("logged_in_tenantid") == false)
 			Tenants.login();
 	}
 

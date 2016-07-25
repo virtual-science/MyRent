@@ -33,7 +33,7 @@ public class Tenants extends Controller {
 		Tenant tenant= Tenant.findByEmail(email);
 		if ((tenant!= null) && (tenant.checkPassword(password) == true)) {
 			Logger.info("Successfully authentication of " + tenant.firstName);
-			session.put("logged_in_userid", tenant.id);
+			session.put("logged_in_tenantid", tenant.id);
 			inputTenantData.index();
 		} else {
 			Logger.info("Authentication failed");
@@ -43,7 +43,7 @@ public class Tenants extends Controller {
 	}
 
 	public static Tenant getCurrentUser() {
-		String userId = session.get("logged_in_userid");
+		String userId = session.get("logged_in_tenantid");
 		if (userId == null) {
 			return null;
 		}
@@ -58,7 +58,7 @@ public class Tenants extends Controller {
 }
 	 
 	 public static void logout() {
-			session.clear();
+		 	session.remove("logged_in_tennatid");
 			Welcome.index();
 		}
 	 

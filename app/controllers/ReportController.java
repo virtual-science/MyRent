@@ -21,7 +21,7 @@ public class ReportController extends Controller {
 	 */
 	@Before
 	static void checkAuthentification() {
-		if (session.contains("logged_in_userid") == false)
+		if (session.contains("logged_in_landlordid") == false)
 			Landlords.login();
 	}
 

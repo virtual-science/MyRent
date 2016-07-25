@@ -33,7 +33,7 @@ public class Landlords extends Controller {
 		Landlord landlord = Landlord.findByEmail(email);
 		if ((landlord != null) && (landlord.checkPassword(password) == true)) {
 			Logger.info("Successfully authentication of " + landlord.firstName);
-			session.put("logged_in_userid", landlord.id);
+			session.put("logged_in_landlordid", landlord.id);
 			Configurations.index();
 		} else {
 			Logger.info("Authentication failed");
@@ -43,7 +43,7 @@ public class Landlords extends Controller {
 	}
 
 	public static Landlord getCurrentUser() {
-		String userId = session.get("logged_in_userid");
+		String userId = session.get("logged_in_landlordid");
 		if (userId == null) {
 			return null;
 		}
@@ -58,8 +58,8 @@ public class Landlords extends Controller {
 }
 	 
 	 public static void logout() {
-			session.clear();
-			Welcome.index();
+		 	session.remove("logged_in_landlordid");
+		 	Welcome.index();
 		}
 	 
 	 // Render the Landlord index page

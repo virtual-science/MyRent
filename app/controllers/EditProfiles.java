@@ -16,7 +16,7 @@ import play.db.jpa.Blob;
  { 
  	public static void index() 
  	  { 
- 		String landlordId = session.get("logged_in_userid"); 
+ 		String landlordId = session.get("logged_in_landlordid"); 
  	     
  	    if(landlordId != null) 
  	    { 
