@@ -63,5 +63,8 @@ public class Residence extends Model {
 		
 	}
 	
+	public String Changetenancy(){
+		return this.eircode;
 	
+	}
 }

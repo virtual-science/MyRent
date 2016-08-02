@@ -70,20 +70,18 @@ public class Landlords extends Controller {
 
 	 // Method to delete resident from list
 	 public static void deleteresidence(String eircode) {
-		 
-		 Landlord landlord = Landlords.getCurrentUser();
-		 
-			Logger.info("eircode is:  " +  eircode);
+		  Landlord landlord = Landlords.getCurrentUser();
+		 	Logger.info("eircode is:  " +  eircode);
 			Residence residence = Residence.findByEircode(eircode);
-			//residence.from = null;
 			
+			//residence.from = null;
 			landlord.residences.remove(eircode);
 			landlord.save();
 			residence.delete();
 			Configurations.index();
 }
 	 
-	 // Method to Edit resident from list
+	 // Method to Edit resident from list  
 	 public static void editresidence(String eircode) {
 		 	Residence residence = Residence.findByEircode(eircode);
 		 	render("Landlord/updateresidence.html", residence);
@@ -91,12 +89,11 @@ public class Landlords extends Controller {
 		 	
 		 	// update residence record
 		 	public static void updateresidence (int rent, String eircode) {
-		 		
-		 		 Landlord landlord = Landlords.getCurrentUser();
+		 		Landlord landlord = Landlords.getCurrentUser();
 		 		Residence residence = Residence.findByEircode(eircode);
 		 		residence.rent = rent ;
 		 		residence.save();
-		 		render("Landlord/configuration.html", residence, landlord);
+		 		render("Landlord/updateresidence.html", residence, landlord);
 		 		Configurations.index();
 		 		
 		 	}

@@ -42,7 +42,7 @@ public class Tenants extends Controller {
 
 	}
 
-	public static Tenant getCurrentUser() {
+	public static Tenant getCurrentTenant() {
 		String userId = session.get("logged_in_tenantid");
 		if (userId == null) {
 			return null;
@@ -66,5 +66,22 @@ public class Tenants extends Controller {
 	 public static void index(){
 		 render("Tenant/index.html");
 	 }
+	 
+	// Method to Edit resident from list  
+		 public static void editresidence(String eircode) {
+			 	Residence residence = Residence.findByEircode(eircode);
+			 	render("inputTenantData/index.html", residence);
+		 }
+	 
+//	// Method to select residence from list of residences available 
+//		 public static void Changetenancy(String eircode) {
+//			 Residence res = Residence.findByEircode(eircode);
+//			  Tenant tenant = Tenant.getCurrentTenant();
+//			 	Logger.info("eircode is:  " +  eircode);
+//				Residence residence = Residence.findByEircode(eircode);
+//				residence.save();
+//				
 
-	 }
+
+		
+}

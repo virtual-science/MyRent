@@ -1,0 +1,51 @@
+function requestReportCircle() {
+  const center = circle.getCenter();
+  const latcenter = center.lat().toString();
+  const lngcenter = center.lng().toString();
+  const radius = circle.getRadius().toString();
+  $('#radius').val(radius);
+  $('#latcenter').val(latcenter);
+  $('#lngcenter').val(lngcenter);
+}
+function initialize() 
+{
+     latlng = new google.maps.LatLng(53.347298, -6.268344);
+
+    const mapOptions = 
+    {
+        center      : new google.maps.LatLng(latlng.lat(), latlng.lng()),
+        mapTypeId   : google.maps.MapTypeId.MAP,
+        zoom        :10
+    };
+    
+     map = new google.maps.Map(document.getElementById("map_canvas"),
+            mapOptions);
+    
+    // place a marker
+     marker = new google.maps.Marker({
+        map         : map,
+        position    : latlng,
+        title       : "Drag and drop on your property!",
+        draggable   : true
+    });
+
+   
+    
+
+    // This adds the marker to the map
+     circle.setEditable(true);
+     circle.setMap(map);
+    marker.setMap(map); 
+
+  //marker listener populates hidden fields ondragend
+    google.maps.event.addListener(marker, 'dragend', function() {
+        const latLng = marker.getPosition();
+        const latlong = latLng.lat().toString().substring(0,10) + ',' + latLng.lng().toString().substring(0,10);
+        //publish lat long in geolocation control in html page
+        $("#geolocation").val(latlong);
+        //update the new marker position
+        map.setCenter(latLng);
+      });
+
+}
+google.maps.event.addDomListener(window, 'load', initialize);

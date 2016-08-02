@@ -23,12 +23,16 @@ GET     /tenant                                 Tenants.index
 GET     /signup									Tenants.signup
 GET     /login                                  Tenants.login
 GET     /logout                                 Tenants.logout
-GET     /inputTenantData                        inputTenantData.index();s
+GET     /inputTenantData                        inputTenantData.index
+POST 
 
 # inputData
 GET     /inputData                              inputData.index
 POST    /inputData/datainput					inputData.datainput
 POST    /inputData                              inputData.authenticate
+
+#inputTenantData
+GET    /Changetenancy							inputTenantData.Changetenancy
 
 # Contact
 GET     /contact								Contact.index
