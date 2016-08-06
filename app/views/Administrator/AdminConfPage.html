@@ -1,0 +1,98 @@
+#{extends 'main.html' /}
+#{set title:'Administrator Configuration Page' /}  
+    
+   <nav class="ui inverted teal menu">
+    <a class="ui item" href="/">Home</a>
+    <a class="ui active item" href="/administrators">Administrator</a>
+    <a class="ui item" href="/reports/filter">Reports</a>
+    <a class="ui item" href="charts/pie">Charts</a>
+    <a class="ui item" href="/contact">Contact</a>
+    <a class="ui item" href="/administrators/logout">Log out</a>
+     </nav>
+     
+<section class="ui segment">   
+      <h3>Administration page</h3>
+      <h5>Landlords and Tenants</h5>  
+    <div class="ui three column grid">
+      <div class="column">
+             
+       <form action="/landlords/signup" method="GET">
+        <div class="ui fluid form segment">
+          <button type="submit" class="ui fluid blue submit button">Register landlord</button>
+        </div>
+      </form>
+
+       <form action="/tenants/signup" method="GET">
+        <div class="ui fluid form segment">
+          <button type="submit" class="ui fluid blue submit button">Register tenant</button>
+        </div>
+      </form>
+
+             
+      <!-- <form class="ui form segment"  action="/administrators/deletelandlord" method="POST"> -->
+      <form class="ui form segment landlord">
+        <div id="deletelandlord" class="ui fluid selection dropdown landlord">
+          <input name="email_landlord" type="hidden" id="form_delete_landlord">
+          <div class="default text">Select landlord to delete</div>
+          <i class="dropdown icon"></i>
+          <div class="menu landlord">
+                        <div class="item landlord" data-value="homer@simpson.com">homer@simpson.com</div>
+                        <div class="item landlord" data-value="marge@simpson.com">marge@simpson.com</div>
+                        <div class="item landlord" data-value="mr@withers.com">mr@withers.com</div>
+                      </div>
+        </div>
+        
+        <div class="ui fluid form segment">
+          <div id="notificationLandlord"></div>
+        </div>
+        
+        <div class="ui fluid form segment">
+          <button type="submit" class="ui fluid blue submit button">Delete landlord</button>
+          <div class="ui error message"></div>          
+        </div>
+      </form>
+
+      <!-- <form class="ui form segment"  action="/administrators/deletetenant" method="POST"> -->
+      <form class="ui form segment tenant">
+        <div id="deletetenant" class="ui fluid selection dropdown">
+          <input name="email_tenant" type="hidden" id="form_delete_tenant">
+          <div class="default text">Select tenant to delete</div>
+          <i class="dropdown icon"></i>
+          <div class="menu">
+                        <div class="item tenant" data-value="h">h</div>
+                        <div class="item tenant" data-value="barney@gumble.com">barney@gumble.com</div>
+                        <div class="item tenant" data-value="klovn@krasti.com">klovn@krasti.com</div>
+                        <div class="item tenant" data-value="krusty@clown.com">krusty@clown.com</div>
+                        <div class="item tenant" data-value="ned@flanders.com">ned@flanders.com</div>
+                        <div class="item tenant" data-value="moe@szyslak.com">moe@szyslak.com</div>
+                        <div class="item tenant" data-value="barney@gumble.com">barney@gumble.com</div>
+                      </div>
+        </div>
+        
+        <div class="ui fluid form segment">
+          <div id="notificationTenant"></div>
+        </div>
+        
+        <div class="ui fluid form segment">
+          <button type="submit" class="ui fluid blue submit button">Delete tenant</button>
+          <div class="ui error message"></div> 
+        </div>
+      </form>
+                  
+      </div><!-- end first column -->
+      <!-- The map representing residence locations -->
+        <div class="ui fluid form segment">
+        <div class="column">
+          <h5>Single click on marker to read eircode and tenant</h5>
+          <div id="map" style="width:500px; height:460px;"></div>  
+        </div> 
+      </div>
+    </div><!-- end class ui two column grid -->
+</section>
+
+<script src="http://maps.googleapis.com/maps/api/js"></script>
+<script src="/public/javascripts/administrator_map.js"></script>   
+<script src="/public/javascripts/administrators.js"></script>         
+<script></script>  </body>
+
+</html>

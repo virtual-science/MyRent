@@ -8,6 +8,9 @@ GET     /                                       Welcome.index
 # Report
 GET     /renderReport        		            ReportController.index
 POST 	/generateReport							ReportController.generateReport
+GET     /reportVacantResidence                  ReportVacantResidence.index
+POST    /reportVacantResidence                  ReportVacantResidence.generateReports
+
 
 # Landlord page
 GET     /index                                  Landlords.index
@@ -24,15 +27,15 @@ GET     /signup									Tenants.signup
 GET     /login                                  Tenants.login
 GET     /logout                                 Tenants.logout
 GET     /inputTenantData                        inputTenantData.index
-POST 
+POST	/terminateResidence						inputTenantData.tenancyTerminate 
+POST    inputTenantData/Changetenancy			inputTenantData.Changetenancy 
+
 
 # inputData
 GET     /inputData                              inputData.index
 POST    /inputData/datainput					inputData.datainput
 POST    /inputData                              inputData.authenticate
 
-#inputTenantData
-GET    /Changetenancy							inputTenantData.Changetenancy
 
 # Contact
 GET     /contact								Contact.index
@@ -46,6 +49,7 @@ POST    /changeDetails                           EditProfiles.changeDetails
 GET    /editredidence                            Landlords.editresidence
 GET    /landlords                                Landlords/deleteresidence
 POST   /landlords/deleteresidence                Landlords.deleteresidence
+
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

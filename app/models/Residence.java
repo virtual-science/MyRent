@@ -25,17 +25,18 @@ public class Residence extends Model {
 	public int areaOfResidence;
 	public int rent; // how much rent is
 	public int numbOfBedrooms;
-		
-	
+
 	@ManyToOne
 	public Landlord from;
 	
+	@OneToOne
+	public Tenant from1;
+	
 	@OneToOne(mappedBy = "residence", cascade = CascadeType.ALL)
 	public Tenant tenant;
-	
-	
 
-	public Residence(Landlord from, String geolocation, String residenceType, int numbOfBedrooms, int rent, int numberOfBathrooms, int areaOfResidence, String eircode) {
+	public Residence(Landlord from, String geolocation, String residenceType, int numbOfBedrooms, int rent,
+			int numberOfBathrooms, int areaOfResidence, String eircode) {
 
 		this.from = from;
 		this.geolocation = geolocation;
@@ -46,7 +47,19 @@ public class Residence extends Model {
 		this.areaOfResidence = areaOfResidence;
 		postDate = dateValidator();
 		this.eircode = eircode;
-				
+
+	}
+
+	public Residence(Tenant from1, String geolocation, String residenceType, int numbOfBedrooms, int rent,
+			int numberOfBathrooms, int areaOfResidence, String eircode) {
+		this.from1 = from1;
+		this.geolocation = geolocation;
+		this.residenceType = residenceType;
+		this.rent = rent;
+		this.numbOfBedrooms = numbOfBedrooms;
+		this.numberOfBathrooms = numberOfBathrooms;
+		this.areaOfResidence = areaOfResidence;
+		this.eircode = eircode;
 	}
 
 	public String dateValidator() {
@@ -56,15 +69,19 @@ public class Residence extends Model {
 		Logger.info("Date Created On " + createOn + " postDate " + dformat.format(createOn));
 		return dformat.format(createOn);
 	}
-	
-	public static Residence findByEircode (String eircode){
-		
+
+	public static Residence findByEircode(String eircode) {
 		return find("eircode", eircode).first();
-		
+	}
+
+	public String Changetenancy() {
+		return this.eircode;
+
 	}
 	
-	public String Changetenancy(){
-		return this.eircode;
-	
+	public LatLng getlocation(){
+		return LatLng.toLatLng(geolocation);
+		
+		
 	}
 }

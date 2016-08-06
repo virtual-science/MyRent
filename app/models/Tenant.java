@@ -20,14 +20,12 @@ public class Tenant extends Model {
 	public String lastName;
 	public String email;
 	public String password;
-	
-	
-@OneToOne
-public Residence residence;
 
+	@OneToOne
+	public Residence residence;
 
 	public Tenant(String firstName, String lastName, String email, String password) {
-     	this.firstName = firstName;
+		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
@@ -41,22 +39,8 @@ public Residence residence;
 		return this.password.equals(password);
 	}
 
-	public String toString()
-	  {
-	    return firstName;
-	  }
-
-	public static void edit1() {
-		// TODO Auto-generated method stub
-		
+	public String toString() {
+		return firstName;
 	}
 
-	public static Tenant getCurrentTenant() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	
-	}
-	
-
+}

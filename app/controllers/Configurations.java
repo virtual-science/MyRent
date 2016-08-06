@@ -19,7 +19,7 @@ public class Configurations extends Controller {
 	}
 
 	public static void index() {
-		Landlord landlord = Landlords.getCurrentUser();
+		Landlord landlord = Landlords.getCurrentLandlord();
 		List<Residence> allResidence = Residence.findAll();
 		List<Residence>  residences = new ArrayList<Residence>();
 		for (Residence res : allResidence ){

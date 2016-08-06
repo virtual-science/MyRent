@@ -1,17 +1,17 @@
 #{extends 'main.html' /}
-#{set title:'Tenant' /}
+#{set title:'Administrator' /}
 
-  <nav class="ui inverted teal menu">
+ <nav class="ui inverted teal menu">
 	<a class="item" href="/">Home</a> 
-	<a class="active item" href="/">Tenant</a>
-	<a class="item" href="/tenants/signup"> Sign Up</a>
-	<a class="item" href="/tenants/login"> Login</a>
+	<a class="active item" href="/Administrators/index">Administrator</a>
+	<a class="ui item" href="/Administrators/logins"> Login</a>
 	</nav>
 
 <section class="ui segment">
 
-<h1> Welcome to Tenant Page </h1>
-<h3> Your guide to residential property </h3>
+<h1> Welcome to Administrator Page </h1>
+<h3> Please Signin as Administrator</h3>
+
 
 <div class="ui two column grid">
 <div class="eight wide column">
@@ -24,22 +24,13 @@
         <p>  The purpose of myrent is to gather information on rents from landlords and tenants and allow any registered user to generate a report on the state of the rental market.</p>
         <p>  The success of the project will depend on the willingness of tenants and landlords to provide information about their properties.</p>
         <p>
-        <a href="/tenants/login">Log in</a> or <a href="/tenants/signup">create a new account </a> and input your details on the Input Data page. To provide the required information will take just a few minutes of your time.
+        <a href="/Administrators/logins">Log in</a> 
         
    </p>
    </div>
    </div>
    <div class="two vide column">
-   <img class="ui large image" src="/public/images/tenant.jpg">
+   <img class="ui small image" src="/public/images/admin.png">
    </div>
    </div>
    </section>
-   
-   <style>
-#map_canvas {
-	width: 100%;
-	height: 500px;
-	border: solid thin #FF0000;
-	margin-top: 10px;
-}
-</style>

@@ -34,7 +34,7 @@ public class inputTenantData extends Controller {
 				}
 			}
 		}
-		
+
 		for (Residence res : residences) {
 			if (res.tenant == null) {
 				allResidences.add(res);
@@ -45,71 +45,64 @@ public class inputTenantData extends Controller {
 			TenantEircode = " ";
 		} else {
 			TenantEircode = reside.eircode;
-		
+		}
+		render("inputTenantData/index.html", userTenant, allResidences, TenantEircode);
 	}
 
-	render("inputTenantData/index.html", userTenant, allResidences, TenantEircode);
-	}
-
-
-	// Method to Edit resident from list  
-	 public static void changetenancy (String eircode) {
-		 	Residence residence = Residence.findByEircode(eircode);
-		 	render("InputTenantData/index.html", residence);
-	 }
-		 	
-		 	// update residence record
-		 	public static void updateresidence (int rent, String eircode) {
-		 		Tenant userTenant = Tenants.getCurrentTenant();		 		
-		 		Residence residence = Residence.findByEircode(eircode);
-		 		residence.rent = rent ;
-		 		residence.save();
-		 		render("Landlord/updateresidence.html", residence);
-		 		Configurations.index();
-		 	}
-	
-	
-		 	public static void tenancyTerminate() {
-
-				Tenant userTenant = Tenants.getCurrentTenant();
-				
-				List<Residence> tenantResident = Residence.findAll();
-
-				for (Residence residence : tenantResident) {
-					if (residence.tenant != null) {
-
-					}
-					if (residence.tenant.equals(userTenant))
-						break;
-					{
-						Logger.info("The residence deleted is : " + residence.tenant.firstName + "'s resident");
-
-						residence.tenant = null;
-						userTenant.residence = null;
-						userTenant.save();
-						residence.save();
-						index();
-					}
-				}
+	public static void tenancyTerminate() {
+		Tenant userTenant = Tenants.getCurrentTenant();
+		List<Residence> tenantResident = Residence.findAll();
+		for (Residence residence : tenantResident) {
+			if (residence.tenant != null) {
 			}
-
-			public static void Changetenancy(long newResidence) {
-				Logger.info("You have updated residence: " + newResidence);
-
-				Residence residence = Residence.findById(newResidence);
-
-				Tenant tenant = Tenants.getCurrentTenant();
-
-				if (tenant.residence == null) {
-
-					residence.tenant = tenant;
-					tenant.residence = residence;
-					tenant.save();
-					residence.save();
-					index();
-				}
-
-				Logger.info("Invalid you have to terminate residency, for a new tenancy to be added");
+			if (residence.tenant.equals(userTenant))
+				break;
+			{
+				Logger.info("The residence deleted is : " + residence.tenant.firstName + "'s resident");
+				residence.tenant = null;
+				userTenant.residence = null;
+				userTenant.save();
+				residence.save();
 				index();
 			}
+		}
+	}
+
+	public static void Changetenancy(long newResidence) {
+		Logger.info("You have updated residence: " + newResidence);
+		Residence residence = Residence.findById(newResidence);
+		Tenant tenant = Tenants.getCurrentTenant();
+		if (tenant.residence == null) {
+			residence.tenant = tenant;
+			tenant.residence = residence;
+			tenant.save();
+			residence.save();
+			index();
+		}
+		Logger.info("Invalid you have to terminate residency, for a new tenancy to be added");
+		index();
+	}
+
+	public static void getlocationCordinates() {
+		int flag = 0;
+		List<Residence> allResi = Residence.findAll();
+		List<List<String>> jsArray = new ArrayList<List<String>>();
+
+		for (Residence res : allResi) {
+
+			if (res.tenant == null) {
+				String name = res.from.firstName;
+				String id = Long.toString(res.id);
+				String lon = Double.toString(res.getlocation().getLongitude());
+				String lat = Double.toString(res.getlocation().getLatitude());
+				String tName = (res.tenant == null) ? "avaiable" : res.tenant.firstName;
+				String eircode = res.eircode;
+
+				jsArray.add(flag, Arrays.asList(id, lat, lon, tName, eircode, name));
+				flag++;
+			}
+		}
+		renderJSON(jsArray);
+
+	}
 }

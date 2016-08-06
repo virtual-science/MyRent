@@ -14,14 +14,14 @@
       
             <!-- Eircode of exist rental if any -->
             <div class="ui form segment">
-              <h5>Existing rental (eircode)</h5> 
-                  <input id="exist_eircode" value="tttet53Y433" name="existingeircode" type="text">
-               </div>
+            <h5>Existing rental (eircode)</h5> 
+            <input readonly value="${TenantEircode}" type="text" name="eircode">
+             </div>
       </section>
 
       <section class="ui segment">
         <h5>Press to end tenancy</h5>
-        <form class="ui form" action="/tenants/endtenancy" method="POST">
+        <form class="ui form" action="/terminateResidence" method="POST">
           <div class="ui fluid form segment">           
             <!-- Terminate a tenancy - if it exists -->
             <button type="submit" class="ui blue fluid submit button">Terminate tenancy</button>
@@ -33,23 +33,27 @@
       <section class="ui segment">
         <h5>Select from vacant residences for new rental</h5>
         <form class="ui form" action="/inputTenantData/Changetenancy" method="POST">
-        <select class="ui segment" name = "Changetenancy">
-          <option value="" disabled selected>Select Residence</option>
-         
-          #{list items:allResidences, as:'res'}
-          <option value="${res.eircode}">${res.eircode}</option>
-          #{/list}
+        <section class="ui segment" >
+        <select class="ui fluid dropdown tenant" name = "newResidence" required>
         
-        </select>
+          <option value="" selected>Select Residence</option>
+          
+          <div class = "ui list">
+         
+          #{list items: allResidences, as: 'res'}
+          <option value="${res.id}">${res.eircode}</option>
+          #{/list}
+          </select>
                  
-          <button type="submit" class="ui blue fluid submit button">Change Tenancy</button>
-          <div class="ui error message"></div>
+          <button class="ui blue fluid submit button">Change Tenancy</button>
+          
+          
         </form>
       </section>
     </div>
     <!-- Search for vacant residences using Google map -->
     <div class="column">
-      <form action="/search/search_results" method="POST">
+      <form action="/reportVacantResidence" method="POST">
         <section class="ui segment">
           <div id="map_canvas" style="height: 400px;"></div>
           <button type="submit" class="ui fluid blue submit button"
@@ -69,8 +73,8 @@
                
 </section>
 
-<script src="/public/javascripts/inputTenantData.js" type="text/javascript" charset="utf-8"></script>
-<script src="/public/javascripts/rent.js"></script>
+
+
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyBtlVC_sNyT5CcqdDpnCfQPannxflgWHKQ"></script>
 <script src="/public/javascripts/reportMapCircle.js" charset="utf-8"></script>
   </body>

@@ -1,0 +1,70 @@
+#{extends 'main.html' /} #{set title:'reportVacantReisdent of myRent' /}
+
+<nav class="ui teal inverted menu">
+	<a class="ui item" href="/">Home</a> 
+	 <a class="ui item" href="/Tenant/index.html">Tenant</a> 
+		<a class="ui active item" href="/renderReport">Search report</a>		
+		 <a class="ui item" href="/contact">Contact</a> 
+		 <a class="ui item" href="/logout">Log Out</a>
+</nav>
+
+<div class="two vide column">
+	<img class="ui small image" src="/public/images/report.jpg">
+</div>
+
+<div class="ui two column grid">
+	<div class="fourteen wide column">
+		<section class="ui segment"></section>
+
+		<h3>Vacant residences</h3>
+		<section class="ui segment">
+			<table class="ui table segment">
+				<thead>
+					<tr>
+						<th><i class="user icon"></i>Tenant</th>
+						<th><i class="search icon"></i>Search: radius(m)</th>
+						<th><i class="world icon"></i>center(latitude)</th>
+						<th><i class="world icon"></i>center(longitude)</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>${tenant.firstName} ${tenant.lastName}</td>
+						<td>${circle.radius}</td>
+						<td>${circle.latcenter}</td>
+						<td>${circle.lngcenter}</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="ui table segment">
+				<thead>
+					<tr>
+					    <th> ID   </th>
+						<th>Eircode</th>
+						<th>Date registered</th>
+						<th>Rent<i class="euro icon"></i></th>
+						<th>Bedrooms</th>
+						<th>Bathrooms</th>
+						<th>Area(m)</th>
+						<th> Landlord </th>
+					</tr>
+				</thead>
+				<tbody>
+					#{list items:residences, as:'res'}
+					<tr>
+						<td>${res.id}</td>
+						<td><i class="area icon"></i>${res.eircode}</td>
+						<td><i class="calendar icon"></i>${res.postDate}</td>
+						<td><i class="area icon"></i>${res.rent}</td>
+						<td><i class="bed icon"></i>${res.numbOfBedrooms}</td>
+						<td><i class="male icon"></i>${res.numberOfBathrooms}</td>
+						<td><i class="area icon"></i>${res.areaOfResidence}</td>
+					    <td><i class="tenant icon"></i>&nbsp${res.from.firstName}&nbsp${res.from.lastName}
+						</td>
+					</tr>
+					#{/list}
+				</tbody>
+			</table>
+	</div>
+</div>
+</section>

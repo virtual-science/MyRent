@@ -42,7 +42,7 @@ public class Landlords extends Controller {
 
 	}
 
-	public static Landlord getCurrentUser() {
+	public static Landlord getCurrentLandlord() {
 		String userId = session.get("logged_in_landlordid");
 		if (userId == null) {
 			return null;
@@ -70,7 +70,7 @@ public class Landlords extends Controller {
 
 	 // Method to delete resident from list
 	 public static void deleteresidence(String eircode) {
-		  Landlord landlord = Landlords.getCurrentUser();
+		  Landlord landlord = Landlords.getCurrentLandlord();
 		 	Logger.info("eircode is:  " +  eircode);
 			Residence residence = Residence.findByEircode(eircode);
 			
@@ -89,7 +89,7 @@ public class Landlords extends Controller {
 		 	
 		 	// update residence record
 		 	public static void updateresidence (int rent, String eircode) {
-		 		Landlord landlord = Landlords.getCurrentUser();
+		 		Landlord landlord = Landlords.getCurrentLandlord();
 		 		Residence residence = Residence.findByEircode(eircode);
 		 		residence.rent = rent ;
 		 		residence.save();
