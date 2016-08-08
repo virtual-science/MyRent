@@ -1,3 +1,4 @@
+
 #{extends 'main.html' /} #{set title:'InputTenantData' /}
      
 <nav class="ui inverted teal menu">
@@ -34,17 +35,15 @@
         <h5>Select from vacant residences for new rental</h5>
         <form class="ui form" action="/inputTenantData/Changetenancy" method="POST">
         <section class="ui segment" >
+       
+         <!-- Dropdown shows list of vacant tenants -->
         <select class="ui fluid dropdown tenant" name = "newResidence" required>
-        
-          <option value="" selected>Select Residence</option>
-          
+         <option value="" selected>Select Residence</option>
           <div class = "ui list">
-         
           #{list items: allResidences, as: 'res'}
           <option value="${res.id}">${res.eircode}</option>
           #{/list}
           </select>
-                 
           <button class="ui blue fluid submit button">Change Tenancy</button>
           
           

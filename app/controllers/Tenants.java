@@ -12,7 +12,7 @@ public class Tenants extends Controller {
 		render("Tenant/signup.html");
 	}
 
-	public static void register(String firstName, String lastName, String email, String password, boolean terms) {
+	public static void registers(String firstName, String lastName, String email, String password, boolean terms) {
 		Logger.info(firstName + " " + lastName + " " + email + " " + password);
 		Tenant tenant = new Tenant(firstName, lastName, email, password);
 		if (terms != false) {
@@ -32,14 +32,13 @@ public class Tenants extends Controller {
 
 		Tenant tenant = Tenant.findByEmail(email);
 		if ((tenant != null) && (tenant.checkPassword(password) == true)) {
-			Logger.info("Successfully authentication of " + tenant.firstName);
+			Logger.info("Successfully authentication of " + email);
 			session.put("logged_in_tenantid", tenant.id);
 			inputTenantData.index();
 		} else {
 			Logger.info("Authentication failed");
 			login();
 		}
-
 	}
 
 	public static Tenant getCurrentTenant() {

@@ -29,6 +29,7 @@ GET     /logout                                 Tenants.logout
 GET     /inputTenantData                        inputTenantData.index
 POST	/terminateResidence						inputTenantData.tenancyTerminate 
 POST    inputTenantData/Changetenancy			inputTenantData.Changetenancy 
+POST    /registers                               Tenants.registers
 
 
 # inputData
@@ -50,6 +51,12 @@ GET    /editredidence                            Landlords.editresidence
 GET    /landlords                                Landlords/deleteresidence
 POST   /landlords/deleteresidence                Landlords.deleteresidence
 
+# Administrators page
+GET     /Administrators/index                    Administrators.index
+GET     /Administrators/logins                   Administrators.logins
+POST    /Administrators/authentications          Administrators.authentications
+GET     /logout                                  Administrators.logout
+POST    /Administrators                          Administrators/deletetenant
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

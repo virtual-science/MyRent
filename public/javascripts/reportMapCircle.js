@@ -20,7 +20,7 @@ const CIRCLEMAP= (function(context) {
     const initRadius = 40000;
     const mapProp = {
       center: center,
-      zoom: 6,
+      zoom: 8,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
     };
     const mapDiv = document.getElementById('map_canvas');

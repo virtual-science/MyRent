@@ -56,19 +56,19 @@ Landlord(bart):
     
 Residence(residence1):
     geolocation: 53.220565,-6.659308
-    numbOfBedrooms: 4
-    numberOfBathrooms: 3
     postDate: Mon 11/11/15 - 01:15 PM
     rent: 5500
     residenceType: Studio
+    from: bart
     areaOfResidence: 3200
     eircode: W23 X433
+    lardlord: homer
     from: homer
     tenant: barney
     
 Residence(residence2):
     from: homer
-    geolocation: 50.949762,-6.7514982
+    geolocation: 52.9949762,-7.4514982
     numbOfBedrooms: 5
     numberOfBathrooms: 3
     postDate: Mon 11/11/15 - 01:15 PM
@@ -77,9 +77,9 @@ Residence(residence2):
     areaOfResidence: 2500
     eircode: V94 D922
     tenant: ned
-   
+    
 Residence(residence3):
-    geolocation: 49.849762,-5.7514982
+    geolocation: 52.9949762,-7.1514982
     numbOfBedrooms: 4
     numberOfBathrooms: 2
     postDate: Mon 11/11/15 - 01:15 PM
@@ -91,7 +91,7 @@ Residence(residence3):
     tenant: moe
     
 Residence(residence4):
-    geolocation: 48.8849762,-4.7514982
+    geolocation: 52.9949762,-7.9514982
     numbOfBedrooms: 4
     numberOfBathrooms: 2
     postDate: Mon 11/11/15 - 01:15 PM
@@ -104,7 +104,7 @@ Residence(residence4):
     tenant: krusty
     
 Residence(residence5):
-    geolocation: 53.9949762,-6.5514982
+    geolocation: 52.9949762,-7.3514982
     numbOfBedrooms: 3
     numberOfBathrooms: 1
     postDate: Mon 11/11/15 - 01:15 PM
@@ -114,9 +114,9 @@ Residence(residence5):
     areaOfResidence: 4100
     eircode: X92 Y433
     tenant: klovn
-        
+    
 Residence(residence6):
-    geolocation: 52.9949762,-6.545982
+    geolocation: 52.9949762,-7.7514982
     numbOfBedrooms: 3
     numberOfBathrooms: 1
     postDate: Mon 11/11/15 - 01:15 PM
@@ -127,7 +127,7 @@ Residence(residence6):
     eircode: R95 TDY9
     
 Residence(residence7):
-    geolocation: 48.9955742, -5.7514982
+    geolocation: 52.9949762,-7.0514982
     numbOfBedrooms: 3
     numberOfBathrooms: 1
     postDate: Mon 11/11/15 - 01:15 PM
@@ -149,7 +149,7 @@ Tenant(krusty):
     lastName: clown
     email: krusty@clown.com
     password: secret
-    residence: residence4
+    residence: residence1
     
 Tenant(moe):
     firstName: Moe
@@ -164,10 +164,14 @@ Tenant(ned):
     email: ned@flenders.com
     password: secret
     residence: residence2
-
-Tenant (barney):
-    firstName: barney
-    lastName: gumble
+    
+Tenant(barney):
+    firstName: Barney
+    lastName: Gumble
     email: barney@gumble.com
     password: secret
-    residence: residence1
+    residence: residence4
+    
+Administrator(administrator):
+    email: admin@witpress.ie
+    password: secret
