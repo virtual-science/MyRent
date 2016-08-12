@@ -50,18 +50,6 @@ public class Residence extends Model {
 
 	}
 
-	public Residence(Tenant from1, String geolocation, String residenceType, int numbOfBedrooms, int rent,
-			int numberOfBathrooms, int areaOfResidence, String eircode) {
-		this.from1 = from1;
-		this.geolocation = geolocation;
-		this.residenceType = residenceType;
-		this.rent = rent;
-		this.numbOfBedrooms = numbOfBedrooms;
-		this.numberOfBathrooms = numberOfBathrooms;
-		this.areaOfResidence = areaOfResidence;
-		this.eircode = eircode;
-	}
-
 	public String dateValidator() {
 		Date createOn = new Date();
 		createOn = new Timestamp(createOn.getTime());

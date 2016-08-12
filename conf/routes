@@ -21,15 +21,16 @@ POST    /authenticate                           Landlords.authenticate
 POST    /register                               Landlords.register
 GET     /updateresidence                        Landlords.updateresidence
 
+
 # Tenant page
 GET     /tenant                                 Tenants.index
-GET     /signup									Tenants.signup
-GET     /login                                  Tenants.login
+GET     /signupp								Tenants.signupp
+GET     /loginn                                 Tenants.loginn
 GET     /logout                                 Tenants.logout
 GET     /inputTenantData                        inputTenantData.index
 POST	/terminateResidence						inputTenantData.tenancyTerminate 
 POST    inputTenantData/Changetenancy			inputTenantData.Changetenancy 
-POST    /registers                               Tenants.registers
+POST    /registers                              Tenants.registers
 
 
 # inputData
@@ -55,8 +56,10 @@ POST   /landlords/deleteresidence                Landlords.deleteresidence
 GET     /Administrators/index                    Administrators.index
 GET     /Administrators/logins                   Administrators.logins
 POST    /Administrators/authentications          Administrators.authentications
-GET     /logout                                  Administrators.logout
-POST    /Administrators                          Administrators/deletetenant
+GET     /Administrators                          Administrators.logout
+POST    /deleteLandlord                          Administrators.deleteLandlord
+POST    /deleteTenant                            Administrators.deletetenant
+GET     /Administrators                          Administrators.logout
 
 # Ignore favicon requests
 GET     /favicon.ico                            404

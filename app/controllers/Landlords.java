@@ -98,4 +98,25 @@ public static void register(String firstName, String lastName, String address1, 
 
 	}
 
+//	// Method to delete landlord from list
+//	public static void deletelandlord(){
+//		Landlord userlandlord = Landlords.getCurrentLandlord();
+//		List<Residence> landlordResident = Residence.findAll();
+//		for (Residence residence : landlordResident) {
+//			if (residence.landlord != null) {
+//			}
+//			if (residence.landlord.equals(userlandlord))
+//				break;
+//			{
+//				Logger.info("The residence deleted is : " + residence.tenant.firstName + "'s resident");
+//				residence.tenant = null;
+//				userlandlord.save();
+//				residence.save();
+//				index();
+//			}
+//		}
+	
+	
+//}
+
 }

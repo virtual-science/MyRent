@@ -23,7 +23,7 @@ public class reportVacantResidence extends Controller {
 	@Before
 	static void checkAuthentification() {
 		if (session.contains("logged_in_tenantid") == false)
-			Tenants.login();
+			Tenants.loginn();
 	}
 
 	/**

@@ -1,5 +1,6 @@
-$('.ui.dropdown.tenant').dropdown('clear')
- 
+$('.ui.dropdown.LandlordDel').dropdown('clear');
+$('.ui.dropdown.TenantDel').dropdown('clear');
+
         	  let latlong = [];
         	  var map;
         	  const markers = [];
@@ -78,7 +79,7 @@ $('.ui.dropdown.tenant').dropdown('clear')
         	          });
         	          markers[i] = marker;      
         	          bounds.extend(marker.position);
-        	          
+        	          marker.setAnimation(google.maps.Animation.BOUNCE);
         	      }
         	      map.fitBounds(bounds);
         	      

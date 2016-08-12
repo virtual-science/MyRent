@@ -8,7 +8,7 @@ import java.util.*;
 import models.*;
 
 public class Tenants extends Controller {
-	public static void signup() {
+	public static void signupp() {
 		render("Tenant/signup.html");
 	}
 
@@ -17,13 +17,13 @@ public class Tenants extends Controller {
 		Tenant tenant = new Tenant(firstName, lastName, email, password);
 		if (terms != false) {
 			tenant.save();
-			login();
+			loginn();
 		} else {
-			signup();
+			signupp();
 		}
 	}
 
-	public static void login() {
+	public static void loginn() {
 		render("Tenant/login.html");
 	}
 
@@ -37,7 +37,7 @@ public class Tenants extends Controller {
 			inputTenantData.index();
 		} else {
 			Logger.info("Authentication failed");
-			login();
+			loginn();
 		}
 	}
 

@@ -17,16 +17,11 @@ public class Administrator extends Model {
 
 	public String email;
 	public String password;
-	public String firstName;
-	
-	@OneToMany(mappedBy = "from", cascade = CascadeType.ALL) 
-	  public List<Residence> residences = new ArrayList<Residence>();
-	
-	
-		public Administrator (String email, String password) {
+
+	public Administrator(String email, String password) {
 		this.email = email;
 		this.password = password;
-		}
+	}
 
 	public static Administrator findByEmail(String email) {
 		return find("email", email).first();
@@ -36,8 +31,4 @@ public class Administrator extends Model {
 		return this.password.equals(password);
 	}
 
-	
-
-		
-	}
-	
+}

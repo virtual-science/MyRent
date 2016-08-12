@@ -1,59 +1,77 @@
-#{extends 'main.html' /}
-#{set title:'Administrator Configuration Page' /}  
-    
-   <nav class="ui inverted teal menu">
-    <a class="ui item" href="/">Home</a>
-    <a class="ui active item" href="/administrators/index">Administrator</a>
-    <a class="ui item" href="/reports/filter">Reports</a>
-    <a class="ui item" href="charts/pie">Charts</a>
-    <a class="ui item" href="/contact">Contact</a>
-    <a class="ui item" href="/administrators/logout">Log out</a>
-     </nav>
-     
-<section class="ui segment">   
-      <h3>Administration page</h3>
-      <h5>Landlords and Tenants</h5>  
-    <div class="ui two column grid">
-      <div class="column">
-             
-       <form action="/landlords/signup" method="GET">
-        <div class="ui fluid form segment">
-          <button type="submit" class="ui fluid blue submit button">Register landlord</button>
-        </div>
-      </form>
+#{extends 'main.html' /} #{set title:'Administrator Configuration Page'
+/}
 
-       <form action="/tenants/signup" method="GET">
-        <div class="ui fluid form segment">
-          <button type="submit" class="ui fluid blue submit button">Register tenant</button>
-        </div>
-      </form>        
-       </div>
-              
-              <!-- end first column -->
-      <!-- The map representing residence locations -->
-      <!-- Search for vacant residences using Google map -->
-    <div class="column">
-     <div class="ui twelve wide column">
-      
-        <section class="ui segment">
-          <div id="map_canvas" style="height: 400px; width: 500px;"></div>
-          
-        </section>
-        <div style="visibility: hidden" id="circledata">
-          <input type="text" id="radius" name="radius"> 
-          <input type="text" id="latcenter" name="latcenter"> 
-          <input type="text" id="lngcenter" name="lngcenter">
-        </div>
-      </form>
-    </div>
-    </div>    
-  </div>        
+<nav class="ui inverted teal menu">
+	<a class="ui item" href="/">Home</a> <a class="ui active item"
+		href="/administrators/AdminConfPage.html"index">Administrator</a> <a
+		class="ui item" href="/contact">Contact</a> <a class="ui item"
+		href="/administrators/logout">Log out</a>
+</nav>
+<section class="ui blue segment">
+	<div class="ui grid segment">
+		<div class="ui six wide column">
+			<h2>Administration page:</h2>
+			<h3>Register landlords and tenants</h3>
+			<section class="ui segment">
+
+				<a href="/signup"><button class="ui fluid blue submitt button">Register
+						landlord</button></a>
+			</section>
+			<section class="ui segment">
+				<a href="/signupp"><button class="ui fluid blue submitt button">Register
+						tenant</button></a>
+			</section>
+
+
+			<!-- 	delete landlord from the list -->
+			<form class="ui form segment" action="/deleteLandlord" method="POST">
+				<select class="ui fluid dropdown LandlordDel" name="email_landlord">
+					<option value="" selected>Select a Landlord to delete</option>
+					<div class="ui list">
+						#{list items: landlord, as:'res'}
+						<option value="${res.id}">${res.email}</option>
+						#{/list}
+					</div>
+				</select>
+				<section>
+					<button class="ui fluid blue submitt button">Delete
+						landlord</button>
+					<div class="ui error message"></div>
+				</section>
+			</form>
+
+			<!-- 	delete landlord from the list -->
+			<form class="ui form segment " action="/deleteTenant " method="POST">
+				<select class="ui fluid dropdown TenantDel" name="email_tenant">
+					<option value="" selected>Select a Tenant to delete</option>
+					<div class="ui list">
+						#{list items: tenants, as:'res'}
+						<option value="${res.id}">${res.email}</option>
+						#{/list}
+					</div>
+
+				</select>
+				<section>
+					<button class="ui fluid blue submitt button">Delete tenant</button>
+					<div class="ui error message"></div>
+				</section>
+			</form>
+
+		</div>
+		<div class="ui ten wide column">
+			<section class="ui segment">
+
+				<div id="map_canvas" style="width: 500px; height: 380px;"></div>
+			</section>
+		</div>
+	</div>
 </section>
 
-
-
+</form>
+</section>
 
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&key=AIzaSyBtlVC_sNyT5CcqdDpnCfQPannxflgWHKQ"></script>
 <script src="/public/javascripts/administratorMap.js" charset="utf-8"></script>
-  </body>
-       
+
+
+

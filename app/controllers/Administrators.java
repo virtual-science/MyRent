@@ -9,16 +9,16 @@ import models.*;
 
 public class Administrators extends Controller {
 
-	public String id;
-	public String email;
-	public String password;
+	public static void index1() {
+		render("Administrator/index.html");
+	}
 
 	// Render the Administrator index page
 	public static void index() {
 		Administrator admin = getCurrentAdministrator();
 		List<Tenant> tenants = Tenant.findAll();
 		List<Landlord> landlord = Landlord.findAll();
-		render("Administrator/index.html", tenants, landlord, admin);
+		render("Administrator/AdminConfPage.html", tenants, landlord, admin);
 	}
 
 	public static void logins() {
@@ -32,7 +32,7 @@ public class Administrators extends Controller {
 		if ((admin != null) && (admin.checkPassword(password) == true)) {
 			Logger.info("Successfully authentication of ");
 			session.put("logged_in_admin", admin.id);
-			render("Administrator/AdminConfPage.html");
+			index();
 		} else {
 			Logger.info("Authentication failed");
 			logins();
@@ -44,9 +44,9 @@ public class Administrators extends Controller {
 		if (userId == null) {
 			return null;
 		}
-		Administrator logged_in_user = Administrator.findById(Long.parseLong(userId));
-		Logger.info("In Accounts controller: Logged in user is " + logged_in_user.firstName);
-		return logged_in_user;
+		Administrator adminlogin = Administrator.findById(Long.parseLong(userId));
+		Logger.info("In Accounts controller: Logged in user is " + adminlogin.email);
+		return adminlogin;
 	}
 
 	public static void logout() {
@@ -54,41 +54,62 @@ public class Administrators extends Controller {
 		Welcome.index();
 	}
 
-	// Method to delete tenant from list
-	public static void deletetenant(String eircode) {
-		Administrator admin = Administrators.getCurrentAdministrator();
-		Logger.info("eircode is:  " + eircode);
-		Residence residence = Residence.findByEircode(eircode);
-
-		// residence.from = null;
-		admin.residences.remove(eircode);
-		admin.save();
-		residence.delete();
-		render("Administrator/AdminConfPage.html");
-	}
-	
 	public static void getlocationCordinates() {
 		int flag = 0;
 		List<Residence> allResi = Residence.findAll();
 		List<List<String>> jsArray = new ArrayList<List<String>>();
 
 		for (Residence res : allResi) {
+			String id = Long.toString(res.id);
+			String lon = Double.toString(res.getlocation().getLongitude());
+			String lat = Double.toString(res.getlocation().getLatitude());
+			String tName = (res.tenant == null) ? "avaiable" : res.tenant.firstName;
+			String eircode = res.eircode;
 
-			
-				
-				String id = Long.toString(res.id);
-				String lon = Double.toString(res.getlocation().getLongitude());
-				String lat = Double.toString(res.getlocation().getLatitude());
-				String tName = (res.tenant == null) ? "avaiable" : res.tenant.firstName;
-				String eircode = res.eircode;
+			jsArray.add(flag, Arrays.asList(id, lat, lon, tName, eircode));
+			flag++;
+		}
 
-				jsArray.add(flag, Arrays.asList(id, lat, lon, tName, eircode));
-				flag++;
-			}
-		
 		renderJSON(jsArray);
+	}
 
-	
+	public static void deleteLandlord(long email_landlord) {
+		List<Residence> residences = Residence.findAll();
+		List<Tenant> tenants = Tenant.findAll();
+		Landlord landl = Landlord.findById(email_landlord);
 
-}
+		for (Residence residence : residences) {
+			if (residence.from.equals(landl)) {
+				residence.delete();
+			}
+		}
+
+		for (Tenant tenant : tenants) {
+			if (tenant.id != null && tenant.id.equals(landl)) {
+				tenant.id = null;
+				tenant.save();
+			}
+		}
+		landl.delete();
+		index();
+
+	}
+
+	public static void deletetenant(long email_tenant) {
+		List<Residence> residences = Residence.findAll();
+		Tenant tena = Tenant.findById(email_tenant);
+		Logger.info("tenant deleted is:  " + tena.firstName);
+
+		for (Residence residence : residences) {
+			if (residence.tenant != null && residence.tenant.equals(tena)) {
+				residence.tenant = null;
+				residence.save();
+			}
+
+		}
+		tena.delete();
+
+		index();
+	}
+
 }
