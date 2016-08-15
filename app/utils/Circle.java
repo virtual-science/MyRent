@@ -18,7 +18,9 @@ public class Circle {
    */
   public LatLng getCenter() 
   {
-    return new LatLng(latcenter,lngcenter);
+	  LatLng latLong = new LatLng(latcenter, lngcenter);
+	  return latLong;
+	  //return new LatLng(latcenter,lngcenter);
   }
 
   /**

@@ -53,14 +53,24 @@ GET    /landlords                                Landlords/deleteresidence
 POST   /landlords/deleteresidence                Landlords.deleteresidence
 
 # Administrators page
-GET     /Administrators/index                    Administrators.index
-GET     /Administrators/logins                   Administrators.logins
+GET     /index                                   Administrators.index
+GET     /Administrators/index1                   Administrators.index1
+GET     /logins                                  Administrators.logins
 POST    /Administrators/authentications          Administrators.authentications
 GET     /Administrators                          Administrators.logout
 POST    /deleteLandlord                          Administrators.deleteLandlord
 POST    /deleteTenant                            Administrators.deletetenant
 GET     /Administrators                          Administrators.logout
+GET     /Administrators/adminReport              Administrators.adminReport
+POST    /Administrators/adminReport              Administrators.adminReport
+POST    /Administrators/byRented                 Administrators.byRented
+POST    /Administrators/byResidenceType          Administrators.byResidenceType
+POST    /Administrators/bySortedRent             Administrators.bySortedRent
+GET     /Administrators/filter                   Administrators.filter
 
+     
+
+ 
 # Ignore favicon requests
 GET     /favicon.ico                            404
 

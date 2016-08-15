@@ -52,7 +52,15 @@ public static void register(String firstName, String lastName, String address1, 
 		Logger.info("In Accounts controller: Logged in user is " + logged_in_user.firstName);
 		return logged_in_user;
 	}
-
+	/**
+	 * Custom Method to get ALL Landlords
+	 * */
+	public static List<Landlord> getAll() {
+		List<Landlord> landlords = new ArrayList<Landlord>();
+		landlords = Landlord.findAll();
+		return landlords;
+	}
+	
 	public static void edit1() {
 		render();
 	}
@@ -97,26 +105,5 @@ public static void register(String firstName, String lastName, String address1, 
 		Configurations.index();
 
 	}
-
-//	// Method to delete landlord from list
-//	public static void deletelandlord(){
-//		Landlord userlandlord = Landlords.getCurrentLandlord();
-//		List<Residence> landlordResident = Residence.findAll();
-//		for (Residence residence : landlordResident) {
-//			if (residence.landlord != null) {
-//			}
-//			if (residence.landlord.equals(userlandlord))
-//				break;
-//			{
-//				Logger.info("The residence deleted is : " + residence.tenant.firstName + "'s resident");
-//				residence.tenant = null;
-//				userlandlord.save();
-//				residence.save();
-//				index();
-//			}
-//		}
-	
-	
-//}
 
 }

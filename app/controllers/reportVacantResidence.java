@@ -36,7 +36,7 @@ public class reportVacantResidence extends Controller {
 	 * @param lngcenter
 	 *            The longtitude of the centre of the search area
 	 */
-	public static void generateReports(double radius, double latcenter, double lngcenter) {
+	/*public static void generateReports(double radius, double latcenter, double lngcenter) {
 		Logger.info("radius:" + radius);
 		// All reported residences will fall within this circle
 		Circle circle = new Circle(latcenter, lngcenter, radius);
@@ -54,7 +54,26 @@ public class reportVacantResidence extends Controller {
 			//Collections.sort(residences, new rentComparator());
 		}
 		render("reportVacantResidence/index.html", tenant, circle, residences);
+	}*/
+	public static void generateReport(double radius, double latcenter, double lngcenter) {
+		Logger.info("radius:" + radius);
+		// All reported residences will fall within this circle
+		Circle circle = new Circle(latcenter, lngcenter, radius);
+
+		Landlord landlord = Landlords.getCurrentLandlord();
+		List<Residence> residences = new ArrayList<Residence>();
+		// Fetch all residences and filter out those within circle
+		List<Residence> residencesAll = Residence.findAll();
+		for (Residence res : residencesAll) {
+			// LatLng residenceLocation = res.getGeolocation();
+			LatLng residenceLocation = LatLng.toLatLng(res.geolocation);
+			if (Geodistance.inCircle(residenceLocation, circle)) {
+				residences.add(res);
+			}
+		}
+		render("report/renderReport.html", residences);
 	}
+	
 
 	/**
 	 * 
