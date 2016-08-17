@@ -3,6 +3,7 @@ package controllers;
 import javax.persistence.Entity;
 
 import play.*;
+import play.db.jpa.JPABase;
 import play.mvc.*;
 import utils.Circle;
 import utils.Geodistance;
@@ -17,8 +18,7 @@ public class Administrators extends Controller {
 		render("Administrator/adminHome.html");
 	}
 
-
-	// Login administrator 
+	// Login administrator
 	public static void logins() {
 		render("Administrator/login.html");
 	}
@@ -30,24 +30,23 @@ public class Administrators extends Controller {
 		if ((admin != null) && (admin.checkPassword(password) == true)) {
 			Logger.info("Successfully authentication of ");
 			session.put("logged_in_admin", admin.id);
-			indexx();   // render the AdminConfPage.html
+			indexx(); // render the AdminConfPage.html
 		} else {
 			Logger.info("Authentication failed");
 			logins();
 		}
 	}
-	
-	
+
 	// Render the Administrator index page (Render AdminConfPage.html)
-		
-		public static void indexx() {
-			//Administrator admin = getCurrentAdministrator();
-			//List<Tenant> tenants = Tenant.findAll();
-			//List<Landlord> landlord = Landlord.findAll();
-			render("Administrator/AdminConfPage.html");
-		}
-		
-		public static Administrator getCurrentAdministrator() {
+
+	public static void indexx() {
+		Administrator admin = getCurrentAdministrator();
+		List<Tenant> tenants = Tenant.findAll();
+		List<Landlord> landlord = Landlord.findAll();
+		render("Administrator/AdminConfPage.html", tenants, landlord, admin);
+	}
+
+	public static Administrator getCurrentAdministrator() {
 		String userId = session.get("logged_in_adminid");
 		if (userId == null) {
 			return null;
@@ -130,51 +129,52 @@ public class Administrators extends Controller {
 				Logger.info("tenant info is:  " + residence.tenant.firstName);
 			}
 		}
-		render("Administrator/adminReport.html",residences);
+		render("Administrator/adminReport.html", residences);
 	}
 
-	
-	public static void byRented(){
+	public static void byRented() {
 		List<Residence> residences = new ArrayList<Residence>();
-		residences = Residence.findAll();
-		if (residences != null) {
-			System.out.print("The sorted int array is:" + residences);
-			
+		List<Residence> allresidences = Residence.findAll();
+
+		for (Residence reside : allresidences) {
+			if (reside.tenant == null) {
+				residences.add(reside);
+			}
 		}
-		render("Administrator/adminReport.html");
-		
-		
+
+		render("Administrator/adminReport.html", residences);
+
 	};
-		
-	
-	public static void byResidenceType(){
-		render("Administrator/adminReport.html");
-		
+
+	public static void byResidenceType() {
+		List<Residence> residences = new ArrayList<Residence>();
+		List<Residence> allresidences = Residence.findAll();
+
+		Collections.sort(allresidences, new ResidenceTypeComparator());
+		residences.addAll(allresidences);
+		render("Administrator/adminReport.html", residences);
+
 	};
-	
-	
-	public static void bySortedRent(){
-		render("Administrator/adminReport.html");
-		
+
+	public static void bySortedRent() {
+		List<Residence> residences = new ArrayList<Residence>();
+		List<Residence> allresidences = Residence.findAll();
+
+		Collections.sort(allresidences, new RentPriceComparator());
+		residences.addAll(allresidences);
+		render("Administrator/adminReport.html", residences);
+
 	};
-		
-	
-	public static void filter(){
-	adminReport();	
-	
-	};
-	
-	
+
+	public static void filter() {
+		adminReport();
+
+	}
+
+	public static void pieChartReport() {
+		render("administrator/PieChartReport.html");
+	}
+
 }
-	
-//		List<Residence> residences = new ArrayList<Residence>();
-//		{
-//		}
-//		}
-//		
-//		
-		//Collections.sort(Residence, new postDate.Comparator());{
-		
-		
-	
-		
+
+// Collections.sort(Residence, new postDate.Comparator());{

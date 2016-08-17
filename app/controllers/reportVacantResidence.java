@@ -55,7 +55,7 @@ public class reportVacantResidence extends Controller {
 		}
 		render("reportVacantResidence/index.html", tenant, circle, residences);
 	}*/
-	public static void generateReport(double radius, double latcenter, double lngcenter) {
+	public static void generateReports(double radius, double latcenter, double lngcenter) {
 		Logger.info("radius:" + radius);
 		// All reported residences will fall within this circle
 		Circle circle = new Circle(latcenter, lngcenter, radius);
