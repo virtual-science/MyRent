@@ -171,10 +171,20 @@ public class Administrators extends Controller {
 
 	}
 
-	public static void pieChartReport() {
-		render("administrator/PieChartReport.html");
-	}
+	// Print administrators Pie Chart Table and Report
 
+		public static void pieChartReport() {
+			List<Residence> residences = new ArrayList<Residence>();
+			residences = Residence.findAll();
+			for (Residence residence : residences) {
+				if (residence.tenant != null) {
+					Logger.info("tenant info is:  " + residence.tenant.firstName);
+				}
+			}
+			render("Administrator/PieChartReport.html", residences);
+		}
+	
+		
 }
 
-// Collections.sort(Residence, new postDate.Comparator());{
+

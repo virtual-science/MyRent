@@ -1,10 +1,11 @@
 #{extends 'main.html' /} #{set title:'Administrator Configuration Page'
 /}
 
-<nav class="ui inverted blue menu">
+<nav class="ui inverted teal menu">
 	<a class="ui item" href="/">Home</a>
 	 <a class="ui item" href="/administrators/indexx">Administrator</a>
 		 <a class="ui active item" href="adminReport">Reports</a> 
+		  <a class="ui active item" href="/administrators/pieChartReport">Charts</a>
 		 <a class="ui item" href="/contact">Contact</a>
 		  <a class="ui item" href="/logout">Logout</a>
 
@@ -116,7 +117,7 @@
 		</div>
 
 		<div class="three wide column">
-			<form action="/Administrators/filter" method="GET">
+			<form action="/Administrators/adminReport" method="GET">
 				<div class="ui form segment">
 					<i class="refresh icon"></i>
 					<button type="submit" class="ui blue submit button">All</button>

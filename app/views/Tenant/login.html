@@ -2,34 +2,40 @@
 
 <nav class="ui inverted teal menu">
 	<a class="item" href="/">Home</a>
-	 <a class="item" href="/signup"> Sign Up</a> 
-	 <a class="active item" href="/loginn"> Login</a> 
-	 <a class="ui item" href="/logout">Log Out</a>
+	 <a class="item" href="/signup"> Sign Up</a>
+	  <a class="active item" href="/loginn"> Login</a> 
+	  <a class="ui item" href="/logout">Log Out</a>
 </nav>
-<h3> Tenant Login Page </h3> 
+
 <h1>Login into your account</h1>
 <h3>Your username is the email registered with</h3>
 
 <div class="ui two column grid">
-	<div class="ten wide column">
+	<div class="eight wide column">
 		<div class="ui raised segment">
 
 			<img class="ui small image" src="/public/images/login.jpg">
-			 
+
 			<section class="ui form segment">
 				<form action="authenticates" method="POST">
 					<div class="field">
 						<label> Email: </label> <input type="text" name="email" required>
 					</div>
 					<div class="field">
-						<label> Password: </label> <input type="password" name="password" required>
+						<label> Password: </label> <input type="password" name="password"
+							required>
 					</div>
 					<button class="ui blue submit button">Login</button>
 				</form>
 			</section>
 		</div>
 	</div>
+	<div class="two vide column">
+		<h2>Tenant Login Page</h2>
+		<img class="ui small image" src="/public/images/tenant.jpg">
+	</div>
 </div>
+
 
 
 

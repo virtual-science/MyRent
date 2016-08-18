@@ -66,8 +66,8 @@ POST    /Administrators/adminReport              Administrators.adminReport
 POST    /Administrators/byRented                 Administrators.byRented
 POST    /Administrators/byResidenceType          Administrators.byResidenceType
 POST    /Administrators/bySortedRent             Administrators.bySortedRent
-GET     /Administrators/filter                   Administrators.filter
-
+GET     /Administrators/filter                   Administrators.filter7
+GET     /pieChartReport                          Administrators.pieChartReport
  
 # Ignore favicon requests
 GET     /favicon.ico                            404
