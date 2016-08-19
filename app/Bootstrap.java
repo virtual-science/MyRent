@@ -14,7 +14,7 @@ public class Bootstrap extends Job
   public void doJob() {
 	  
 	  
-    Fixtures.deleteDatabase();
-    Fixtures.loadModels("data.yml");
+    //Fixtures.deleteDatabase();
+    //Fixtures.loadModels("data.yml");
    }
 }

@@ -1,0 +1,50 @@
+# Ignore all dotfiles...
+.*
+# except for .gitignore
+!.gitignore
+!.classpath
+!.project
+
+
+# Ignore Play! working directory #
+war
+db
+eclipse
+lib
+log
+logs
+modules
+precompiled
+project/project
+project/target
+crud/*
+data/*
+conf/crud/*
+conf/cloudbees*
+public/crud/*
+target
+tmp
+test-result
+server.pid
+*.iml
+*.eml
+Still in the same project folder, create and a file named ProcFile containing the following:
+
+web: play run --http.port=$PORT $PLAY_OPTS
+Next, we need to make one significant change to the app. Open the 'Users' model and adjust the the class as follows:
+
+@Entity
+@Table(name="`User`") //This is necessary because User is a reserved word in PostGreSQL
+public class User extends Model
+'User' is a reserved table name in the database, so we have altered the name slightly to avoid a conflict.
+
+In Git Bash terminal cd into the folder containing your spacebook project, and create a git repository for the project:
+
+git init
+Add all files (except those matched by .gitignore) to the repo and commit them using these commands:
+
+git add --all
+git commit -m "first commit"
+Verify that everything is ok by running this command
+
+git status
