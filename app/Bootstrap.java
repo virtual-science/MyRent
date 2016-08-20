@@ -15,6 +15,6 @@ public class Bootstrap extends Job
 	  
 	  
     //Fixtures.deleteDatabase();
-    //Fixtures.loadModels("data.yml");
+    Fixtures.loadModels("data.yml");
    }
 }
